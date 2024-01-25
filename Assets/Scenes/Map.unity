@@ -131387,7 +131387,7 @@ MonoBehaviour:
   tilemapVisualizer: {fileID: 1217909617}
   startPosition: {x: 0, y: 0}
   randomWalkParameters: {fileID: 11400000, guid: 462b2560f63bc1a4abb833fc4ac05131, type: 2}
-  offset: 0
+  offset: 1
 --- !u!1 &1467792986
 GameObject:
   m_ObjectHideFlags: 0
