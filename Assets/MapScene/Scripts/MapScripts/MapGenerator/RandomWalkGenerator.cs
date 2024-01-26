@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class RandomWalkGenerator : MapGeneratorBase
+public class RandomWalkGenerator : MapGeneratorBase//실제 던전을 생성하는 역할의 클래스
 {
     [SerializeField] protected RandomWalkSO randomWalkParameters;
     [SerializeField][Range(0, 10)] private int offset = 1;
 
     protected override void RunProcedurealGeneration()
     {
+        //-----------------------------------------------------------------------------------------------------------//던전 생성
+
         RandomWalkAlgorithm.footPrint.Clear();
-        RoomManager.DungeonRooms.Clear();
+        RoomList.DungeonRooms.Clear();
 
         RunRandomWalk(randomWalkParameters, startPosition);
 
         List<BoundsInt> rooms = new List<BoundsInt>();//RoomInfo 클래스의 방 가져오기
-        foreach(RoomInfo dungeonRoom in RoomManager.DungeonRooms)
+        foreach(RoomInfo dungeonRoom in RoomList.DungeonRooms)
         {
             rooms.Add(dungeonRoom.room);
         }
@@ -25,7 +27,7 @@ public class RandomWalkGenerator : MapGeneratorBase
 
 
         List<RoomInfo> roomsPositions = new List<RoomInfo>();
-        foreach (RoomInfo dungeonRoom in RoomManager.DungeonRooms)
+        foreach (RoomInfo dungeonRoom in RoomList.DungeonRooms)
         {
             roomsPositions.Add(dungeonRoom);
         }
@@ -41,9 +43,17 @@ public class RandomWalkGenerator : MapGeneratorBase
         tilemapVisualizer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tilemapVisualizer);
 
-        RoomGenerateManager.instance.ClearRooms();
-        RoomGenerateManager.instance.GenerateRoom();
+        //-----------------------------------------------------------------------------------------------------------//던전 설정
+
+        RoomGenerateManager.instance.ClearRooms();//모든 방 오브젝트 삭제
+
+
+        RoomGenerateManager.instance.SetRoom();//방 타입 선택
+        RoomGenerateManager.instance.GenerateRoom();// 방 오브젝트 생성
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------
+    //던전 생성 함수들
 
     private HashSet<Vector2Int> IncreaseCorrider(HashSet<Vector2Int> corridors)//통로 크기 늘리기
     {
@@ -60,20 +70,28 @@ public class RandomWalkGenerator : MapGeneratorBase
         return newCorriderPosition;
     }
 
+
     private HashSet<Vector2Int> ConnectRooms(List<RoomInfo> roomsPositions)//방 이어주기
     {
         HashSet<Vector2Int> corridors = new HashSet<Vector2Int>();
-        RoomInfo currentRoom = roomsPositions[Random.Range(0, roomsPositions.Count)];//무작위로 방 하나 선정
-        roomsPositions.Remove(currentRoom);//현재 위치는 앞으로 타겟에서 제외
+
 
         while (roomsPositions.Count > 0)
         {
-            RoomInfo closest = FindClosestPointTo(currentRoom, roomsPositions);// 가장 가까운 방 찾기
-            roomsPositions.Remove(closest);//현재 위치는 앞으로 타겟에서 제외
+            RoomInfo currentRoom = roomsPositions[Random.Range(0, roomsPositions.Count)];//무작위로 방 하나 선정
+            roomsPositions.Remove(currentRoom);//현재 위치는 앞으로 타겟에서 제외
+            currentRoom.hasDoor = true;//현재 방은 통로 있음
 
-            HashSet<Vector2Int> newCorrider = CreateCorridor(currentRoom, closest);//통로 생성
-            currentRoom = closest;//현재 위치 변경
-            corridors.UnionWith(newCorrider);
+            List<RoomInfo> closest = FindClosestPointTo(currentRoom, RoomList.DungeonRooms);// 가장 가까운 방들 찾기
+
+            foreach (RoomInfo room in closest)
+            {
+                if (room.hasDoor == false)//통로가 없다면
+                {
+                    HashSet<Vector2Int> newCorrider = CreateCorridor(currentRoom, room);//통로 생성
+                    corridors.UnionWith(newCorrider);
+                }
+            }
         }
 
         return corridors;
@@ -86,8 +104,8 @@ public class RandomWalkGenerator : MapGeneratorBase
         var position = currentRoom.center;
         corridor.Add(position);
 
-        Vector2Int currentRoomDoor = Vector2Int.zero;
-        Vector2Int destinationDoor = Vector2Int.zero;
+        Vector2Int currentRoomDoorDirection = Vector2Int.zero;
+        Vector2Int destinationDoorDirection = Vector2Int.zero;
 
         while (position.y != destination.center.y)//목표 위치의 y값까지
         {
@@ -97,24 +115,24 @@ public class RandomWalkGenerator : MapGeneratorBase
 
                 if(position == currentRoom.topDoor)//현재 방의 문에 닿았을 때
                 {
-                    currentRoomDoor = Vector2Int.up;//방의 윗쪽문 활성화
+                    currentRoomDoorDirection = Vector2Int.up;//방의 윗쪽문 활성화
                 }
-                if(position == destination.downSpawnPoint)//목표 방의 스폰위치에 닿았을 때
+                if(position == destination.bottomSpawnPoint)//목표 방의 스폰위치에 닿았을 때
                 {
-                    destinationDoor = Vector2Int.down;//방의 아랫쪽문 활성화
+                    destinationDoorDirection = Vector2Int.down;//방의 아랫쪽문 활성화
                 }
             }
             else if (destination.center.y < position.y)
             {
                 position += Vector2Int.down;
 
-                if (position == currentRoom.downDoor)//현재 방의 문에 닿았을 때
+                if (position == currentRoom.bottomDoor)//현재 방의 문에 닿았을 때
                 {
-                    currentRoomDoor = Vector2Int.down;//방의 아랫쪽문 활성화
+                    currentRoomDoorDirection = Vector2Int.down;//방의 아랫쪽문 활성화
                 }
                 if (position == destination.topSpawnPoint)//목표 방의 스폰위치에 닿았을 때
                 {
-                    destinationDoor = Vector2Int.up;//방의 윗쪽문 활성화
+                    destinationDoorDirection = Vector2Int.up;//방의 윗쪽문 활성화
                 }
             }
             corridor.Add(position);
@@ -128,11 +146,11 @@ public class RandomWalkGenerator : MapGeneratorBase
 
                 if (position == currentRoom.rightDoor)//현재 방의 문에 닿았을 때
                 {
-                    currentRoomDoor = Vector2Int.right;//방의 오른쪽문 활성화
+                    currentRoomDoorDirection = Vector2Int.right;//방의 오른쪽문 활성화
                 }
                 if (position == destination.leftSpawnPoint)//목표 방의 스폰위치에 닿았을 때
                 {
-                    destinationDoor = Vector2Int.left;//방의 왼쪽문 활성화
+                    destinationDoorDirection = Vector2Int.left;//방의 왼쪽문 활성화
                 }
             }
             else if (destination.center.x < position.x)
@@ -141,40 +159,52 @@ public class RandomWalkGenerator : MapGeneratorBase
 
                 if (position == currentRoom.leftDoor)//현재 방의 문에 닿았을 때
                 {
-                    currentRoomDoor = Vector2Int.left;//방의 왼쪽문 활성화
+                    currentRoomDoorDirection = Vector2Int.left;//방의 왼쪽문 활성화
                 }
                 if (position == destination.rightSpawnPoint)//목표 방의 스폰위치에 닿았을 때
                 {
-                    destinationDoor = Vector2Int.right;//방의 오른쪽문 활성화
+                    destinationDoorDirection = Vector2Int.right;//방의 오른쪽문 활성화
                 }
             }
             corridor.Add(position);
         }
 
-        currentRoom.OpenDoor(currentRoomDoor, destination.GetSpawnPoint(destinationDoor));//현재 방에서 목적지까지 가는 문 활성화
-        destination.OpenDoor(destinationDoor, currentRoom.GetSpawnPoint(currentRoomDoor));//목적지에서 현재방으로 오는 문 활성화
+        currentRoom.OpenDoor(currentRoomDoorDirection, destination, destinationDoorDirection);//현재 방에서 목적지까지 가는 문 활성화
+        destination.OpenDoor(destinationDoorDirection, currentRoom, currentRoomDoorDirection);//목적지에서 현재방으로 오는 문 활성화
 
         return corridor;
     }
 
-    private RoomInfo FindClosestPointTo(RoomInfo currentRoomCenter, List<RoomInfo> rooms)//가장 가까운 클래스 위치 찾기
+    private List<RoomInfo> FindClosestPointTo(RoomInfo currentRoomCenter, List<RoomInfo> rooms)//가장 방 위치 찾기
     {
-        RoomInfo closestRoom = null;
+        List<RoomInfo> closestRoom = new List<RoomInfo>();
         float distance = float.MaxValue;
 
         foreach (var room in rooms)
         {
+            if(room == currentRoomCenter)//현재 방은 건너 뛰기
+            {
+                continue;
+            }
+
             float currentDistance = Vector2.Distance(room.center, currentRoomCenter.center);
             if (currentDistance < distance)
             {
                 distance = currentDistance;
-                closestRoom = room;
+            }
+        }
+
+        foreach (var room in rooms)
+        {
+            float currentDistance = Vector2.Distance(room.center, currentRoomCenter.center);
+            if (currentDistance == distance)
+            {
+                closestRoom.Add(room);
             }
         }
 
         return closestRoom;
     }
-
 
 
     private HashSet<Vector2Int> CreateFloorRooms(List<BoundsInt> roomList)//바닥이 있는 방 생성
@@ -196,7 +226,8 @@ public class RandomWalkGenerator : MapGeneratorBase
         return floor;
     }
 
-    protected void RunRandomWalk(RandomWalkSO randomWalkParameters, Vector2Int position)
+
+    protected void RunRandomWalk(RandomWalkSO randomWalkParameters, Vector2Int position)//RandomWalk 실행
     {
         var currentPosition = position;
         HashSet<Vector2Int> floorPositions = new HashSet<Vector2Int>();
