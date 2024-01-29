@@ -820,7 +820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957732432254733124}
   - component: {fileID: 627038983038978227}
-  m_Layer: 6
+  m_Layer: 31
   m_Name: RoomMap
   m_TagString: Room
   m_Icon: {fileID: 0}
