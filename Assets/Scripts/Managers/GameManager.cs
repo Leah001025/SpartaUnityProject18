@@ -102,7 +102,16 @@ public class GameManager
         // 추가적인 게임 오버 처리 작업...
     }
 
-    #region Victory & Difeat
+    #region Victory & Defeat
+    void Victory()
+    {
+        // 승리 처리
+    }
+
+    void Defeat()
+    {
+        // 패배 처리
+    }
     #endregion
 
     #region Save & Load
