@@ -6,7 +6,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public enum RoomType
 {
-    NoThing, START_ROOM, MONSTER_ROOM, BOSS_ROOM
+    NoThing, START_ROOM, MONSTER_ROOM, BOSS_ROOM, ITEM_ROOM
 }
 
 public class RoomInfo
@@ -148,6 +148,9 @@ public class RoomInfo
                 break;
             case RoomType.MONSTER_ROOM:
                 roomMap.GetComponent<SpriteRenderer>().color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 150 / 255f);
+                break;
+            case RoomType.ITEM_ROOM:
+                roomMap.GetComponent<SpriteRenderer>().color = new Color(50 / 255f, 255 / 255f, 50 / 255f, 150 / 255f);
                 break;
         }
 

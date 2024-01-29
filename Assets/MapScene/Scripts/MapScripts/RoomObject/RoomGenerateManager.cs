@@ -9,6 +9,7 @@ public class RoomGenerateManager : MonoBehaviour//각각의 방의 클래스를 설정하기 
     [SerializeField] private GameObject prefabsMap;//room 게임 오브젝트가 들어갑니다.
 
     [SerializeField] private List<GameObject> roomSettingList;//방 모양 리스트
+    [SerializeField] private GameObject itemRoomSetting;
 
     public static RoomGenerateManager instance;
 
@@ -21,6 +22,7 @@ public class RoomGenerateManager : MonoBehaviour//각각의 방의 클래스를 설정하기 
     {
         RoomList.DungeonRooms[0].RoomType = RoomType.START_ROOM;//첫번째 방은 스타트지점(몬스터가 안나오게)
         RoomList.DungeonRooms[RoomList.DungeonRooms.Count - 1].RoomType = RoomType.BOSS_ROOM;//마지막 방이 보스방
+        RoomList.DungeonRooms[Random.Range(1, RoomList.DungeonRooms.Count - 2)].RoomType = RoomType.ITEM_ROOM;
 
         foreach (RoomInfo room in RoomList.DungeonRooms)
         {
@@ -63,6 +65,10 @@ public class RoomGenerateManager : MonoBehaviour//각각의 방의 클래스를 설정하기 
             else if(room.RoomType == RoomType.BOSS_ROOM)//보스방 일 때
             {
                 SettingBossRoom(room.PrefabsObject);
+            }
+            else if(room.RoomType == RoomType.ITEM_ROOM)
+            {
+                SettingItemRoom(room.PrefabsObject);
             }
 
             room.SetObject();
@@ -136,6 +142,11 @@ public class RoomGenerateManager : MonoBehaviour//각각의 방의 클래스를 설정하기 
         }
     }
 
+    public void SettingItemRoom(GameObject parents)
+    {
+        GameObject item_room = Instantiate(itemRoomSetting);
+        item_room.transform.SetParent(parents.transform);//부모 객체 설정
+    }
 
     public void ClearRooms()//모든 Room오브젝트 삭제
     {
