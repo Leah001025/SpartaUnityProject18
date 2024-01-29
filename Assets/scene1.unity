@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 488159771}
   - component: {fileID: 488159770}
   - component: {fileID: 488159769}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1468,7 +1468,7 @@ GameObject:
   - component: {fileID: 753852418}
   - component: {fileID: 753852417}
   - component: {fileID: 753852416}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: MainSprite_Sera
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2128,9 +2128,9 @@ GameObject:
   - component: {fileID: 898431285}
   - component: {fileID: 898431284}
   - component: {fileID: 898431283}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: ChestOpened
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3267,7 +3267,7 @@ GameObject:
   - component: {fileID: 1376302761}
   - component: {fileID: 1376302759}
   - component: {fileID: 1376302760}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: MainSprite_Conan
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3670,7 +3670,7 @@ GameObject:
   - component: {fileID: 1464424531}
   - component: {fileID: 1464424530}
   - component: {fileID: 1464424534}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: ChestSprite
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -3863,7 +3863,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1475745162}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Chest
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -4289,7 +4289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1683066707}
   - component: {fileID: 1683066708}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Ekey
   m_TagString: Item
   m_Icon: {fileID: 0}
