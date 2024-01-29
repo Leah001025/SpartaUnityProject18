@@ -735,6 +735,7 @@ MonoBehaviour:
   - {fileID: 8124212466448184577, guid: 2a0f473fddfc8084f80201ae9e875980, type: 3}
   - {fileID: 1751322478807106688, guid: 9cac64ef5bae82d4094637cf2856aad0, type: 3}
   - {fileID: 5835762305927289251, guid: ef1fea737b586094ab1d732c995da7d9, type: 3}
+  itemRoomSetting: {fileID: 3897518945246033769, guid: 3028a62dbc405af4eab656b1709f0b00, type: 3}
 --- !u!1 &303135900
 GameObject:
   m_ObjectHideFlags: 0
