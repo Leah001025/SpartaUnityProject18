@@ -5,8 +5,15 @@ using UnityEngine;
 
 public class RandomWalkGenerator : MapGeneratorBase//실제 던전을 생성하는 역할의 클래스
 {
-    [SerializeField] protected RandomWalkSO randomWalkParameters;
+    [SerializeField] private RandomWalkSO randomWalkParameters;
     [SerializeField][Range(0, 10)] private int offset = 1;
+
+    public static RandomWalkGenerator Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     protected override void RunProcedurealGeneration()
     {
@@ -227,7 +234,7 @@ public class RandomWalkGenerator : MapGeneratorBase//실제 던전을 생성하는 역할의
     }
 
 
-    protected void RunRandomWalk(RandomWalkSO randomWalkParameters, Vector2Int position)//RandomWalk 실행
+    private void RunRandomWalk(RandomWalkSO randomWalkParameters, Vector2Int position)//RandomWalk 실행
     {
         var currentPosition = position;
         HashSet<Vector2Int> floorPositions = new HashSet<Vector2Int>();
