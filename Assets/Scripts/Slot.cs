@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour // SlotItem
 {
+    public ItemDetailUI itemDetailUI;
     [SerializeField] Image image;
 
     private Item _item;
@@ -21,6 +22,14 @@ public class Slot : MonoBehaviour
             {
                 image.color = new Color(1, 1, 1, 0);
             }
+        }
+    }
+
+    public void ClickItem()
+    {
+        if (item != null)
+        {
+            itemDetailUI.ShowItemPopup(item);
         }
     }
 }
