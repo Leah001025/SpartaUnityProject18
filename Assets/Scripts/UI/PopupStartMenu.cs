@@ -23,7 +23,7 @@ public class PopupStartMenu : MonoBehaviour
     public void OnClickSelectCharacter(int index)
     {
         characterType = (CharacterType)index;
-        var character = GameManager.Instance.CharacterList.Find(item => item.CharacterType == characterType);
+        var character = Managers.Game.CharacterList.Find(item => item.CharacterType == characterType);
 
         switch (index)
         {
