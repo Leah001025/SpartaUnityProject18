@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Room
+  - Door
   - Enemy
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -13,6 +16,11 @@ TagManager:
   - Water
   - UI
   - 
+  - Item
+  - Player
+  - 
+  - Item
+  - Player
   - 
   - 
   - 
@@ -32,12 +40,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Minimap
   m_SortingLayers:
   - name: Default
     uniqueID: 0
