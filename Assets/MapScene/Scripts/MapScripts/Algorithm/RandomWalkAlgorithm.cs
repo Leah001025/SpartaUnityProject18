@@ -74,10 +74,10 @@ public static class Direction2D
 
     public static List<Vector2Int> walkList = new List<Vector2Int>()//방 생성 기반 위치 이동
     {
-        new Vector2Int(0, 60),//up
-        new Vector2Int(60, 0),//right
-        new Vector2Int(0, -60),//down
-        new Vector2Int(-60, 0)//left
+        new Vector2Int(0, 40),//up
+        new Vector2Int(40, 0),//right
+        new Vector2Int(0, -40),//down
+        new Vector2Int(-40, 0)//left
     };
 
     public static Vector2Int GetRandomDirection()//방 생성 기반 위치 이동
