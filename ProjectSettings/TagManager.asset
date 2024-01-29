@@ -4,12 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
   - Room
   - Door
-=======
   - Enemy
->>>>>>> Oh_Monster
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -18,7 +16,11 @@ TagManager:
   - Water
   - UI
   - 
+  - Item
+  - Player
   - 
+  - Item
+  - Player
   - 
   - 
   - 
