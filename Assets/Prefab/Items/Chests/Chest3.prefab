@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EKey: {fileID: 5949846520809624421}
-  item: {fileID: 11400000, guid: 4e80a1713177b734692a39434a9ba86e, type: 2}
+  item: {fileID: 11400000, guid: a8f3c02049fa16245a9e63b1d322c5bd, type: 2}
   ChestOpened: {fileID: 9108005040376435142}
 --- !u!1 &2488863825330763235
 GameObject:
@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2342544850256172961}
   m_Layer: 8
-  m_Name: Chest1
+  m_Name: Chest3
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,8 +221,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2488863825330763235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 1, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1355854904794427112}
