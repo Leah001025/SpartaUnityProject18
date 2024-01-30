@@ -155,4 +155,9 @@ public class RoomGenerateManager : MonoBehaviour//각각의 방의 클래스를 설정하기 
             Destroy(room.gameObject);
         }
     }
+
+    public string GetStageName()
+    {
+        return stageinfo.stageName;
+    }
 }
