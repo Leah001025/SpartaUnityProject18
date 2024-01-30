@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f2329dc7842e9146bd5da04ab200423, type: 3}
-  m_Name: RunningShoes
+  m_Name: Skateboard
   m_EditorClassIdentifier: 
-  itemName: "\uCD08\uAC15\uB825 \uD0A5 \uC6B4\uB3D9\uD654"
-  itemDetail: "\uC774 \uC6B4\uB3D9\uD654\uB97C \uC2E0\uC73C\uBA74 \uB9E4\uC6B0 \uAC15\uB825\uD574\uC9C4\uB2E4."
-  itemImage: {fileID: 21300000, guid: 0e9a87a0507b5db47b6955caf8cdd10f, type: 3}
+  itemName: "\uC2A4\uCF00\uC774\uD2B8\uBCF4\uB4DC"
+  itemDetail: "\uC774\uB3D9\uC18D\uB3C4\uAC00 \uC99D\uAC00\uD55C\uB2E4."
+  itemImage: {fileID: 21300000, guid: 0c26e4090431f2b4bb8349d6d71baa39, type: 3}

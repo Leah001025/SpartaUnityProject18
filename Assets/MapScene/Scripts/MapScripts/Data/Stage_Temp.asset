@@ -18,4 +18,9 @@ MonoBehaviour:
   - {fileID: 253496119414607006, guid: b7a9a0635fb432245b01c8fd9af2a614, type: 3}
   bossList:
   - {fileID: 253496119414607006, guid: b7a9a0635fb432245b01c8fd9af2a614, type: 3}
+  itemList:
+  - {fileID: 2488863825330763235, guid: 10fb0a0262007134dab2cf52fce9f91f, type: 3}
+  - {fileID: 2488863825330763235, guid: 08ffbe74311a93a4197b26b45db68897, type: 3}
+  - {fileID: 2488863825330763235, guid: bc0019fd443ea444fb944e03608a8677, type: 3}
+  - {fileID: 2488863825330763235, guid: 4971a44b39829e74eac9e9e8186ee7c3, type: 3}
   boss_Room: {fileID: 9034770804327252798, guid: f44e6f7ae78215b48a0957065ff8c85c, type: 3}

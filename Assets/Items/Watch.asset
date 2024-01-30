@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f2329dc7842e9146bd5da04ab200423, type: 3}
-  m_Name: RunningShoes
+  m_Name: Watch
   m_EditorClassIdentifier: 
-  itemName: "\uCD08\uAC15\uB825 \uD0A5 \uC6B4\uB3D9\uD654"
-  itemDetail: "\uC774 \uC6B4\uB3D9\uD654\uB97C \uC2E0\uC73C\uBA74 \uB9E4\uC6B0 \uAC15\uB825\uD574\uC9C4\uB2E4."
-  itemImage: {fileID: 21300000, guid: 0e9a87a0507b5db47b6955caf8cdd10f, type: 3}
+  itemName: "\uC190\uBAA9\uC2DC\uACC4\uD615 \uB9C8\uCDE8\uCD1D"
+  itemDetail: "\uB9C8\uCDE8\uCE68\uC744 \uBC1C\uC0AC\uD558\uC5EC \uBAAC\uC2A4\uD130\uB97C
+    \uD55C\uB3D9\uC548 \uACEF\uC544\uB5A8\uC5B4\uC9C0\uAC8C \uB9CC\uB4E0\uB2E4."
+  itemImage: {fileID: 21300000, guid: d3721ef33f7207041a7ce8c1ff73bd30, type: 3}
