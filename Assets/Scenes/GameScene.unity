@@ -298,7 +298,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 2.0666666}
+    oldSize: {x: 0.5625, y: 0.96875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -442,6 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 777175164}
   - component: {fileID: 777175165}
+  - component: {fileID: 777175166}
   m_Layer: 0
   m_Name: ProjectileManager
   m_TagString: Untagged
@@ -478,6 +479,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _impactParticleSystem: {fileID: 0}
   testObj: {fileID: 4233735890327848212, guid: 99070cde8a585534f93716eae65d836e, type: 3}
+--- !u!114 &777175166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777175163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165628f881cc72d478f314e9356c4dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Needle
+    prefab: {fileID: 4233735890327848212, guid: 99070cde8a585534f93716eae65d836e, type: 3}
+    size: 20
 --- !u!1 &868763207
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +513,7 @@ GameObject:
   - component: {fileID: 868763218}
   - component: {fileID: 868763219}
   - component: {fileID: 868763220}
+  - component: {fileID: 868763221}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -657,6 +675,7 @@ MonoBehaviour:
   baseStats:
     statsChangeType: 2
     maxHealth: 10
+    currentHealth: 0
     speed: 5
     attackSO: {fileID: 11400000, guid: 17de22ed7e1281c4db43627f51eadb9b, type: 2}
   statsModifiers: []
@@ -705,6 +724,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.89, y: 1.68}
   m_EdgeRadius: 0
+--- !u!114 &868763221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868763207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feec68abb80e3904489bc5b5773a124f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
 --- !u!1 &1274443762
 GameObject:
   m_ObjectHideFlags: 0
