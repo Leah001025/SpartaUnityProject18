@@ -1,5 +1,7 @@
 # The Developer of Baker Street
 - 로그라이크 형식의 탑뷰 슈팅 게임
+![image](https://github.com/Leah001025/SpartaUnityProject18/assets/37549333/75ef94b8-8a00-4c5e-872f-7322e410a179)
+
 
 <!--
 ![표시할이름](https://img.shields.io/badge/표시할이름-색상?style=for-the-badge&logo=기술스택아이콘&logoColor=white)
