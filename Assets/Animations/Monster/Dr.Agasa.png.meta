@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f3c2ba4dc4cfc8344b9c78c93a5cb0aa
+guid: f9fc38ff866f3aa4f9b71f0c602c5047
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MonsterSprite_0
+      name: Dr.Agasa_Atk_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 147
-        width: 94
-        height: 203
+        x: 88
+        y: 872
+        width: 304
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,19 +137,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1e8514430e209e44b63ef2578ee7784
-      internalID: -92417729
+      spriteID: 58859137ef792a645a4fc985d34ee9b3
+      internalID: 1364361635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MonsterSprite_1
+      name: Dr.Agasa_Atk_2
       rect:
         serializedVersion: 2
-        x: 131
-        y: 147
-        width: 90
+        x: 568
+        y: 872
+        width: 304
         height: 203
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f112630948c21043b2a23a9fd829b9b
-      internalID: 1139235292
+      spriteID: aca44ea8bcbb79c4784d1baa0e16d0cf
+      internalID: -1914612054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MonsterSprite_2
+      name: Dr.Agasa_Walk_1
       rect:
         serializedVersion: 2
-        x: 259
-        y: 147
-        width: 99
-        height: 203
+        x: 76
+        y: 224
+        width: 318
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4eae9764965bfad48a7ac3a2f391ce97
-      internalID: -1439941758
+      spriteID: c10aa8257d11b26428ce5c68d7933632
+      internalID: -814535260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.Agasa_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 224
+        width: 317
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee4c593943f46c429c8e92465312696
+      internalID: -457956359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.Agasa_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 224
+        width: 318
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1789ff43f548e784cb5a7870fd7bc34a
+      internalID: -85894063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.Agasa_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 224
+        width: 317
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94fd129601bee643b59d81133416814
+      internalID: -751609180
       vertices: []
       indices: 
       edges: []
@@ -196,9 +259,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MonsterSprite_0: -92417729
-      MonsterSprite_1: 1139235292
-      MonsterSprite_2: -1439941758
+      Dr.Agasa_6: -1951504620
+      Dr.Agasa_Atk_1: 1364361635
+      Dr.Agasa_Atk_2: -1914612054
+      Dr.Agasa_Walk_1: -814535260
+      Dr.Agasa_Walk_2: -457956359
+      Dr.Agasa_Walk_3: -85894063
+      Dr.Agasa_Walk_4: -751609180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

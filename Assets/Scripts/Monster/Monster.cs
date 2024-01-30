@@ -14,6 +14,9 @@ public class Monster : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer spriter;
 
+    private Boss bossScript;
+    private bool isBossLive = true;
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -23,7 +26,21 @@ public class Monster : MonoBehaviour
 
     void FixedUpdate()
     {
+        //IsBossMonsterDie();
         Move();
+    }
+
+    // 보스방에서 보스가 죽었는지 확인
+    private void IsBossMonsterDie()
+    {
+        isBossLive = bossScript.isLive;
+
+        // 보스가 죽었다면
+        if (!isBossLive)
+        {
+            isLive = false;
+            Die();
+        }
     }
 
     // 몬스터 움직임
@@ -32,7 +49,7 @@ public class Monster : MonoBehaviour
         float distance = Vector2.Distance(target.position, transform.position);
 
         // 플레이어가 몬스터가 인식할 수 있는 범위에 있을 때
-        if (distance < 8)
+        if (distance < 16)
         {
             isMoveAround = false;
             FollowTarget();
@@ -64,7 +81,6 @@ public class Monster : MonoBehaviour
     {
         if (isLive)
         {
-            //pos = new Vector2();
             if (!isMoveAround)
             {
                 NextPos();
