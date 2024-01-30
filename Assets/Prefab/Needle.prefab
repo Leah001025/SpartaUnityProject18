@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 6549658462387392061}
   m_Layer: 0
   m_Name: Needle
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,5 +319,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelCollisionLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 536870912
   fxOnDestory: 1
