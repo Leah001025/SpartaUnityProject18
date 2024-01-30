@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "\uCD08\uAC15\uB825 \uD0A5 \uC6B4\uB3D9\uD654"
   itemDetail: "\uC774 \uC6B4\uB3D9\uD654\uB97C \uC2E0\uC73C\uBA74 \uB9E4\uC6B0 \uAC15\uB825\uD574\uC9C4\uB2E4."
-  itemImage: {fileID: 21300000, guid: e420c5bc93cb2604695a893500c897e3, type: 3}
+  itemImage: {fileID: 21300000, guid: 0e9a87a0507b5db47b6955caf8cdd10f, type: 3}
