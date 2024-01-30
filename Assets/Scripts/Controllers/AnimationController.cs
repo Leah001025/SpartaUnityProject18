@@ -22,6 +22,7 @@ public class AnimationController : Animations
             _healthSystem.OnDamage += Hit;
             _healthSystem.OnInvincibilityEnd += InvincibilityEnd;
         }
+
     }
 
     

@@ -17,7 +17,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private string PlayerTag = "Player";
 
     public int currentMonsterCount;
-    public float playerCurrentHealth;
+    [Range(0, 1)]public float playerCurrentHealth;
     public bool IsGameOver = false;
 
     private void Awake()
@@ -48,6 +48,12 @@ public class BattleManager : MonoBehaviour
         currentMonsterCount = 0;
 
         RandomWalkGenerator.Instance.GenerateDungeon();
+        UpdateHealthUI();
+
+        var character = GameManager.Instance.CharacterList.Find(item => item.CharacterType == GameManager.Instance.nowCharacter);
+
+        Player.transform.Find("MainSprite").GetComponent<SpriteRenderer>().sprite = character.CharacterSprite;
+        Player.transform.Find("MainSprite").GetComponent<Animator>().runtimeAnimatorController = character.animatorController;
     }
 
     // Update is called once per frame
