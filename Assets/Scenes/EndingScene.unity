@@ -497,10 +497,10 @@ RectTransform:
   m_Father: {fileID: 2263265}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2057256353
 MonoBehaviour:
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -524,18 +524,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d5bbdae2ce4afbd42a2698dd1ba6ccc9, type: 3}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &2057256354
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -553,13 +553,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2057256351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 655f98360768e7949937b9aa6d2d523c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ee4ca48924597c438e5210c7c2dc977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IntroTxt: {fileID: 0}
-  IntroDialogue:
-  - 
+  EndingTxt: {fileID: 2057256353}
+  EndingDialogue:
+  - "\uC774\uC81C\uAECF Conflict\uAC00 \uC544\uAC00\uC0AC \uBC15\uC0AC\uB2D8\uC774\uC600\uB2E4\uB2C8..."
+  - "\uC774\uC81C \uCDA9\uB3CC \uC5C6\uC774 \uC131\uACF5\uC801\uC73C\uB85C Merge
+    \uD560 \uC218 \uC788\uACA0\uC5B4!"
+  - "\uD568\uAED8\uD574\uC11C \uB354\uB7EC\uC6E0\uACE0 \uB2E4\uC2DC\uB294 \uBCF4\uC9C0\uB9D0\uC790
+    \uBC84\uADF8\uB4E4\uC544..!"
+  - -End-
   dialogues: []
-  TextSpeed: 1
-  seqSpeed: 1
+  TextSpeed: 0.1
+  seqSpeed: 0.5
   talkNum: 0
