@@ -4,11 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Room
   - Door
   - Enemy
   - Item
   - Weapon
+  - Room
   layers:
   - Default
   - TransparentFX

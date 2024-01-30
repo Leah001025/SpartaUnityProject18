@@ -12,6 +12,8 @@ public class Boss : MonoBehaviour
     private float hp = 30;
     private bool isMoveAround = false;
 
+    bool isMotion = false;
+
     [SerializeField] private GameObject monsterPrefab;
     [SerializeField] private Transform[] spawnPoints;
 
@@ -23,10 +25,13 @@ public class Boss : MonoBehaviour
         characterStatHandler = GameObject.Find("Player").GetComponent<CharacterStatHandler>();
         rigid = GetComponent<Rigidbody2D>();
 
-        StartCoroutine(MotionCheck());
     }
 
-    bool isMotion = true;
+    private void OnEnable()
+    {
+        StartCoroutine(MotionCheck());
+        isMotion = true;
+    }
 
     IEnumerator MotionCheck()
     {
@@ -50,13 +55,14 @@ public class Boss : MonoBehaviour
     //    //MonsterCreate();
     //}
 
+
     // ���� �ൿ ����
     private void Motion()
     {
         int random = Random.Range(0, 5);
 
         // 20%�� Ȯ���� ���� ����
-        if (random < 1)
+        if (random < 3)
         {
             anim.SetBool("IsAtk", true);
             MonsterCreate();
@@ -76,7 +82,7 @@ public class Boss : MonoBehaviour
         for(int idx = 0; idx < spawnPoints.Length; idx++)
         {
             GameObject monster = Instantiate(monsterPrefab, spawnPoints[idx].position, Quaternion.identity);
-            monster.transform.parent = GameObject.Find("Monsters").transform;
+            monster.transform.parent = GameObject.Find("MonsterCount").transform;
         }
         
     }

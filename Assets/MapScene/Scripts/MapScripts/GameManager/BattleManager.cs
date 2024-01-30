@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour
     public bool bossDead = false;
 
     private HealthSystem playerhealthSystem;
+    public RoomInfo playerWhereIs;
 
     public List<GameObject> BossCount;
     public List<GameObject> MonsterCountList;

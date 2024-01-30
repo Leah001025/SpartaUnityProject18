@@ -434,9 +434,11 @@ MonoBehaviour:
   CharacterList:
   - CharacterType: 0
     CharacterSprite: {fileID: 21300000, guid: 56912bf0e15a3774b858fc59a882ebc1, type: 3}
+    CharacterPortrait: {fileID: 21300000, guid: a3234d18fa4e78b469ecf122dc688249, type: 3}
     animatorController: {fileID: 9100000, guid: 7adb73d4475985f4b96acea39d4f9503, type: 2}
   - CharacterType: 1
     CharacterSprite: {fileID: 21300000, guid: a8e1086d01332e740835b17e61c4e783, type: 3}
+    CharacterPortrait: {fileID: 21300000, guid: 81b4f9bb65c752b4db8ab13dd1bcb423, type: 3}
     animatorController: {fileID: 9100000, guid: 01c80de53e07e574a8322d635fe5aa09, type: 2}
   nowCharacter: 1
   useWatch: 0
@@ -658,7 +660,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &978274340
 GameObject:
