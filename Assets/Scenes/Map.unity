@@ -3572,7 +3572,7 @@ Animator:
   m_GameObject: {fileID: 672528658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7adb73d4475985f4b96acea39d4f9503, type: 2}
+  m_Controller: {fileID: 9100000, guid: 01c80de53e07e574a8322d635fe5aa09, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -135892,6 +135892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1727798188}
   - component: {fileID: 1727798189}
+  - component: {fileID: 1727798190}
   m_Layer: 0
   m_Name: ProjectileManager
   m_TagString: Untagged
@@ -135927,7 +135928,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _impactParticleSystem: {fileID: 0}
-  testObj: {fileID: 4233735890327848212, guid: 99070cde8a585534f93716eae65d836e, type: 3}
+--- !u!114 &1727798190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727798187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165628f881cc72d478f314e9356c4dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Needle
+    prefab: {fileID: 4233735890327848212, guid: 99070cde8a585534f93716eae65d836e, type: 3}
+    size: 20
 --- !u!1 &1754239684
 GameObject:
   m_ObjectHideFlags: 0
