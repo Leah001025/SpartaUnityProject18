@@ -62,7 +62,7 @@ public class Boss : MonoBehaviour
         int random = Random.Range(0, 5);
 
         // 20%�� Ȯ���� ���� ����
-        if (random < 3)
+        if (random < 2)
         {
             anim.SetBool("IsAtk", true);
             MonsterCreate();
