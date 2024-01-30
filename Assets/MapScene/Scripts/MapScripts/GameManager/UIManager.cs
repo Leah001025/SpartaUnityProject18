@@ -43,8 +43,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateHealth()
     {
-        PlayerStat hpStat = Player.GetComponent<PlayerStat>();
-        HPSlider.value = hpStat.currentHealth / hpStat.maxHealth;
+        HPSlider.value = Player.GetComponent<CharacterStatHandler>().CurrentStats.currentHealth / Player.GetComponent<CharacterStatHandler>().CurrentStats.maxHealth;
     }
 
     public void OnGoNextStageButton()//다음 스테이지 버튼 눌렀을 때
