@@ -130,6 +130,29 @@ public class Boss : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D col) 
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            HealthSystem healthSystem = GameObject.Find("Player").GetComponent<HealthSystem>();
+            healthSystem.ChangeHealth(-1);
+            if (characterStatHandler.CurrentStats.attackSO.isOnKnockback)
+            {
+                Debug.Log("knockbackon");
+                Movement movement = col.gameObject.GetComponent<Movement>();
+                if (movement != null)
+                {
+                    movement.ApplyKnockback(transform, characterStatHandler.CurrentStats.attackSO.knockbackPower, characterStatHandler.CurrentStats.attackSO.knockbackTime);
+                }
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D col) 
+    {
+        
+    }
+
     // �׾��� ��
     private void Die()
     {
