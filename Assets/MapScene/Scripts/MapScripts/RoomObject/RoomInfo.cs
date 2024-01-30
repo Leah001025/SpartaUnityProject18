@@ -68,8 +68,8 @@ public class RoomInfo
 
         leftSpawnPoint = this.center - new Vector2Int((width / 2) - 2, 0);
         rightSpawnPoint = this.center + new Vector2Int((width / 2) - 2, 0);
-        topSpawnPoint = this.center + new Vector2Int(0, (height / 2) - 2);
-        bottomSpawnPoint = this.center - new Vector2Int(0, (height / 2) - 2);
+        topSpawnPoint = this.center + new Vector2Int(0, (height / 2) - 4);
+        bottomSpawnPoint = this.center - new Vector2Int(0, (height / 2) - 4);
     }
 
     private BoundsInt CreateRooms(Vector2Int center, int width, int height)//�� ����

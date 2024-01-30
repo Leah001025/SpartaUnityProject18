@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject GameOverUI;
     [SerializeField] private GameObject NextStageButton;
+    [SerializeField] private GameObject Player;
+
     [SerializeField] private TextMeshProUGUI remainEnemyText;
     [SerializeField] private TextMeshProUGUI stageName;
     [SerializeField] private TextMeshProUGUI deadStageName;
+
+    [SerializeField] private Slider HPSlider;
 
     private void Awake()
     {
@@ -32,6 +37,14 @@ public class UIManager : MonoBehaviour
         {
             StartCoroutine("GoNextButton");
         }
+
+        UpdateHealth();
+    }
+
+    private void UpdateHealth()
+    {
+        PlayerStat hpStat = Player.GetComponent<PlayerStat>();
+        HPSlider.value = hpStat.currentHealth / hpStat.maxHealth;
     }
 
     public void OnGoNextStageButton()//다음 스테이지 버튼 눌렀을 때

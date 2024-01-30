@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbce90601fb35414b86cec97b85b1569, type: 3}
   m_Name: Stage_Monster
   m_EditorClassIdentifier: 
+  stageName: MonsterTest
   monsterList:
   - {fileID: 4473522097501083534, guid: c6199feb2711d2a4eaa5891d1185aa96, type: 3}
   bossList:
