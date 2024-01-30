@@ -16,4 +16,14 @@ public class SceneManagers : MonoBehaviour
     {
         SceneManager.LoadScene("IntroScene");
     }
+
+    public void OnGoEndingButton()//게임 클리어 버튼 눌렀을 때
+    {
+
+    }
+
+    public void OnGameOverButton()//게임 오버 버튼 눌렀을 때
+    {
+        SceneManager.LoadScene("StartScene");
+    }
 }

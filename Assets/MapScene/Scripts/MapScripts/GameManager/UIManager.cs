@@ -39,26 +39,17 @@ public class UIManager : MonoBehaviour
         }
 
         UpdateHealth();
+
+        if (BattleManager.instance.IsGameOver)
+        {
+            StartCoroutine("GameOver");
+            StopAllCoroutines();
+        }
     }
 
     private void UpdateHealth()
     {
-        HPSlider.value = Player.GetComponent<CharacterStatHandler>().CurrentStats.CurrentHealth / Player.GetComponent<CharacterStatHandler>().CurrentStats.maxHealth;
-    }
-
-    public void OnGoNextStageButton()//다음 스테이지 버튼 눌렀을 때
-    {
-
-    }
-
-    public void OnGoEndingButton()//게임 클리어 버튼 눌렀을 때
-    {
-
-    }
-
-    public void OnGameOverButton()//게임 오버 버튼 눌렀을 때
-    {
-
+        HPSlider.value = BattleManager.instance.playerCurrentHealth;
     }
 
     IEnumerator GoNextButton()
@@ -73,7 +64,7 @@ public class UIManager : MonoBehaviour
         GameOverUI.SetActive(true);
         GameObject panel = GameOverUI.transform.Find("GameOverPanel").gameObject;
 
-        panel.transform.position = Vector3.Lerp(panel.transform.position, new Vector3(panel.transform.position.x, 0, panel.transform.position.z), Time.deltaTime * 5f);
+        panel.transform.position = Vector3.Lerp(panel.transform.position, new Vector3(panel.transform.position.x, 180, panel.transform.position.z), Time.deltaTime * 5f);
 
         yield return null;
     }

@@ -14,7 +14,7 @@ public class RoomInside : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (isClear)
+            if (isClear || Managers.Game.useWatch)
             {
                 BattleManager.instance.nowBattle = false;
             }

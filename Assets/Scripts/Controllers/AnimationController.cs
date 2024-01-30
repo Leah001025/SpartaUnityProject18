@@ -7,8 +7,9 @@ public class AnimationController : Animations
 {
     private HealthSystem _healthSystem;
     private static readonly int IsHit = Animator.StringToHash("IsHit");
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _healthSystem = GetComponent<HealthSystem>();
     }
     // Start is called before the first frame update

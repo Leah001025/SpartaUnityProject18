@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,14 +9,37 @@ public class BattleManager : MonoBehaviour
     public bool nowBattle = false;
     public bool bossDead = false;
 
+    private HealthSystem playerhealthSystem;
+
     public List<GameObject> BossCount;
     public List<GameObject> MonsterCountList;
+    public Transform Player { get; private set; }
+    [SerializeField] private string PlayerTag = "Player";
 
     public int currentMonsterCount;
+    public float playerCurrentHealth;
+    public bool IsGameOver = false;
 
     private void Awake()
     {
         instance = this;
+
+        Player = GameObject.FindGameObjectWithTag(PlayerTag).transform;
+
+        playerhealthSystem = Player.GetComponent<HealthSystem>();
+        playerhealthSystem.OnDamage += UpdateHealthUI;
+        playerhealthSystem.OnHeal += UpdateHealthUI;
+        playerhealthSystem.OnDeath += GameOver;
+    }
+
+    private void GameOver()
+    {
+        IsGameOver = true;
+    }
+
+    private void UpdateHealthUI()
+    {
+        playerCurrentHealth = playerhealthSystem.CurrentHealth / playerhealthSystem.MaxHealth;
     }
 
     // Start is called before the first frame update

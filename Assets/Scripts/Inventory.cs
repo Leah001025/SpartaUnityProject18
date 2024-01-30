@@ -9,7 +9,6 @@ public class Inventory : MonoBehaviour //Inventory
     public static Inventory ins { get; private set; }
     public static bool inventoryActivated = false;
     public List<Item> items;
-    private bool useWatch = false;
     private float time = 0f;
 
     [SerializeField] private GameObject bag;
@@ -34,14 +33,14 @@ public class Inventory : MonoBehaviour //Inventory
 
     void FixedUpdate()
     {
-        if(useWatch == true)
+        if(Managers.Game.useWatch == true)
         {
             time += Time.deltaTime;
             if(time < 4f) BattleManager.instance.nowBattle = false;
             else 
             {
                 time = 0;
-                useWatch = false;
+                Managers.Game.useWatch = false;
             }
         }
     }
@@ -105,7 +104,7 @@ public class Inventory : MonoBehaviour //Inventory
     {
         if(item.name == "Watch")
         {
-            useWatch = true;
+            Managers.Game.useWatch = true;
         }
         else if(item.name == "Skateboard")
         {

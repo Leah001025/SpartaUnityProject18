@@ -134222,6 +134222,7 @@ GameObject:
   - component: {fileID: 1207039083}
   - component: {fileID: 1207039082}
   - component: {fileID: 1207039081}
+  - component: {fileID: 1207039091}
   - component: {fileID: 1207039090}
   m_Layer: 0
   m_Name: Player
@@ -134245,7 +134246,7 @@ MonoBehaviour:
   baseStats:
     statsChangeType: 2
     maxHealth: 100
-    speed: 5
+    speed: 7
     attackSO: {fileID: 11400000, guid: 17de22ed7e1281c4db43627f51eadb9b, type: 2}
   statsModifiers: []
 --- !u!114 &1207039082
@@ -134432,6 +134433,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1207039091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207039080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feec68abb80e3904489bc5b5773a124f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
 --- !u!1 &1217909615
 GameObject:
   m_ObjectHideFlags: 0
@@ -135072,6 +135086,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1363390363}
   - component: {fileID: 1363390364}
+  - component: {fileID: 1363390365}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -135113,6 +135128,19 @@ MonoBehaviour:
   stageName: {fileID: 840936037}
   deadStageName: {fileID: 1176836018}
   HPSlider: {fileID: 121009677}
+--- !u!114 &1363390365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363390362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec1567f37938bc43afca7799ee3f105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameManager: {fileID: 0}
 --- !u!1 &1431169731
 GameObject:
   m_ObjectHideFlags: 0
@@ -136244,8 +136272,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1363390364}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1363390365}
+        m_TargetAssemblyTypeName: SceneManagers, Assembly-CSharp
         m_MethodName: OnGameOverButton
         m_Mode: 1
         m_Arguments:
@@ -136992,7 +137020,10 @@ MonoBehaviour:
   bossDead: 0
   BossCount: []
   MonsterCountList: []
+  PlayerTag: Player
   currentMonsterCount: 0
+  playerCurrentHealth: 0
+  IsGameOver: 0
 --- !u!1 &1952549818
 GameObject:
   m_ObjectHideFlags: 0
