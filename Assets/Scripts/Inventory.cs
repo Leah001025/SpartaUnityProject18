@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,9 +13,11 @@ public class Inventory : MonoBehaviour //Inventory
     private bool useWatch = false;
     private float time = 0f;
 
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject bag;
     [SerializeField] private Transform slotParent;
     [SerializeField] private Slot[] slots;
+    private HealthSystem _healthSystem;
 
     private void OnValidate() // change slots if changed by editor
     {
@@ -111,16 +114,22 @@ public class Inventory : MonoBehaviour //Inventory
         {
             Debug.Log("이동속도 증가");
             // 이속증가
+            CharacterStatHandler statHandler = player.GetComponent<CharacterStatHandler>();
+            statHandler.AddStatModifier(item.statModifiers);
         }
         else if(item.name == "LemonPie")
         {
             Debug.Log("레몬파이사용");
             // hp 회복
+            _healthSystem = player.GetComponent<HealthSystem>();
+            _healthSystem.ChangeHealth(20);
         }
         else if(item.name == "RunningShoes")
         {
             Debug.Log("운동화사용");
             // 데미지 증가
+            CharacterStatHandler statHandler = player.GetComponent<CharacterStatHandler>();
+            statHandler.AddStatModifier(item.statModifiers);
         }
         else 
         {
