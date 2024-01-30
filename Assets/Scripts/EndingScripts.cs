@@ -65,5 +65,13 @@ public class EndingScripts : MonoBehaviour
     private void EndTalk()
     {
         talkNum = 0;
+
+        StartCoroutine(LoadStartSceneAfterDelay(2f));
+    }
+
+    IEnumerator LoadStartSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("StartScene");
     }
 }

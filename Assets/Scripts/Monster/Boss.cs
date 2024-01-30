@@ -7,7 +7,9 @@ public class Boss : MonoBehaviour
     [SerializeField] private float speed = 2.0f;
     public bool isLive = true;
     private Vector2 pos;
-    private int hp = 30;
+    private float power = 0;
+    private CharacterStatHandler characterStatHandler = null;
+    private float hp = 30;
     private bool isMoveAround = false;
 
     [SerializeField] private GameObject monsterPrefab;
@@ -18,6 +20,7 @@ public class Boss : MonoBehaviour
 
     private void Awake()
     {
+        characterStatHandler = GameObject.Find("Player").GetComponent<CharacterStatHandler>();
         rigid = GetComponent<Rigidbody2D>();
 
         StartCoroutine(MotionCheck());
@@ -36,6 +39,10 @@ public class Boss : MonoBehaviour
         yield break;
     }
 
+    void FixedUpdate()
+    {
+        power = characterStatHandler.CurrentStats.attackSO.power;
+    }
     //void FixedUpdate()
     //{
     //    //MoveAround();
@@ -43,18 +50,18 @@ public class Boss : MonoBehaviour
     //    //MonsterCreate();
     //}
 
-    // º¸½º Çàµ¿ °áÁ¤
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½àµ¿ ï¿½ï¿½ï¿½ï¿½
     private void Motion()
     {
         int random = Random.Range(0, 5);
 
-        // 20%ÀÇ È®·ü·Î ¸ó½ºÅÍ »ý¼º
+        // 20%ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (random < 1)
         {
             anim.SetBool("IsAtk", true);
             MonsterCreate();
         }
-        // 80%ÀÇ È®·ü·Î º¸½º ¿òÁ÷ÀÓ
+        // 80%ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         else
         {
             anim.SetBool("IsAtk", false);
@@ -63,7 +70,7 @@ public class Boss : MonoBehaviour
 
     }
 
-    // ¸ó½ºÅÍ »ý¼º
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private void MonsterCreate()
     {
         for(int idx = 0; idx < spawnPoints.Length; idx++)
@@ -74,7 +81,7 @@ public class Boss : MonoBehaviour
         
     }
 
-    // ¸ó½ºÅÍ°¡ µ¹¾Æ´Ù´Ñ´Ù.
+    // ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½Æ´Ù´Ñ´ï¿½.
     private void MoveAround()
     {
         if (isLive)
@@ -99,25 +106,25 @@ public class Boss : MonoBehaviour
         Invoke("NextPos", 2f);
     }
 
-    // °ø°Ý¹Þ¾ÒÀ» ¶§
+    // ï¿½ï¿½ï¿½Ý¹Þ¾ï¿½ï¿½ï¿½ ï¿½ï¿½
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Weapon")
         {
-            hp--;
+            hp -= power;
 
             if (hp <= 0)
             {
                 isLive = false;
                 Die();
 
-                // °ÔÀÓ ¿À¹ö ±¸Çö
+                // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
             }
         }
     }
 
-    // Á×¾úÀ» ¶§
+    // ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½
     private void Die()
     {
         Destroy(gameObject);

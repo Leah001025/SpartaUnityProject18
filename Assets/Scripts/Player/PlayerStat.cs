@@ -14,8 +14,8 @@ public enum StatsChangeType
 public class PlayerStat
 {
     public StatsChangeType statsChangeType;
-    [Range(1, 100)] public float maxHealth;
-    [Range(1f, 20f)] public float speed;
+    [Range(0, 100)] public float maxHealth;
+    [Range(0f, 20f)] public float speed;
     public AttackSO attackSO;
 
     public float CurrentHealth { get; internal set; }
