@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Slider HPSlider;
 
+    [SerializeField] Image characterPortrait;
+
     private void Awake()
     {
         GameOverUI.SetActive(false);
@@ -26,6 +28,10 @@ public class UIManager : MonoBehaviour
     {
         stageName.text = RoomGenerateManager.instance.GetStageName();
         deadStageName.text = RoomGenerateManager.instance.GetStageName();
+
+        var character = GameManager.Instance.CharacterList.Find(item => item.CharacterType == GameManager.Instance.nowCharacter);
+
+        characterPortrait.sprite = character.CharacterPortrait;
     }
 
     // Update is called once per frame

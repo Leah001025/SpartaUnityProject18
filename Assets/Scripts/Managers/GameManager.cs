@@ -22,6 +22,7 @@ public class Character
 {
     public CharacterType CharacterType;
     public Sprite CharacterSprite;
+    public Sprite CharacterPortrait;
     public RuntimeAnimatorController animatorController;
 }
 
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     public List<Character> CharacterList = new List<Character>();
 
-    public CharacterType nowCharacter = CharacterType.Sera;
+    public CharacterType nowCharacter;
 
     public GameState CurrentState { get; private set; }
 

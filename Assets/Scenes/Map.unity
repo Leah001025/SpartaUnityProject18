@@ -3276,7 +3276,7 @@ Transform:
   m_Children:
   - {fileID: 672528661}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &661467739
 GameObject:
@@ -134899,8 +134899,8 @@ RectTransform:
   m_Children:
   - {fileID: 1535216907}
   - {fileID: 228905676}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 1562926024}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -135007,6 +135007,7 @@ MonoBehaviour:
   stageName: {fileID: 840936037}
   deadStageName: {fileID: 1176836018}
   HPSlider: {fileID: 121009677}
+  characterPortrait: {fileID: 1251181220}
 --- !u!114 &1363390365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135741,6 +135742,8 @@ Transform:
   - {fileID: 1347651176}
   - {fileID: 1363390363}
   - {fileID: 1727798188}
+  - {fileID: 1838706872}
+  - {fileID: 1347346106}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -136721,8 +136724,8 @@ RectTransform:
   m_Children:
   - {fileID: 852340822}
   - {fileID: 1558890981}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 1562926024}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -137513,5 +137516,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
