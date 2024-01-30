@@ -127,9 +127,17 @@ public class Monster : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
-            Debug.Log("Change hs");
             HealthSystem healthSystem = GameObject.Find("Player").GetComponent<HealthSystem>();
             healthSystem.ChangeHealth(-1);
+            if (characterStatHandler.CurrentStats.attackSO.isOnKnockback)
+            {
+                Debug.Log("knockbackon");
+                Movement movement = col.gameObject.GetComponent<Movement>();
+                if (movement != null)
+                {
+                    movement.ApplyKnockback(transform, characterStatHandler.CurrentStats.attackSO.knockbackPower, characterStatHandler.CurrentStats.attackSO.knockbackTime);
+                }
+            }
         }
     }
 

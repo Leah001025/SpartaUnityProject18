@@ -22348,7 +22348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 11400000, guid: 832b334e40f72ff4ca1d7d752d473fcb, type: 2}
-  player: {fileID: 1207039080}
+  player: {fileID: 651469197}
   bag: {fileID: 2035302929}
   slotParent: {fileID: 511417174}
   slots:
