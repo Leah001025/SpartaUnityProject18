@@ -39,7 +39,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Level
   - FloorObstacle
   - Minimap
   m_SortingLayers:
