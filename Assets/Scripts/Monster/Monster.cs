@@ -123,6 +123,21 @@ public class Monster : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D col) 
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            Debug.Log("Change hs");
+            HealthSystem healthSystem = GameObject.Find("Player").GetComponent<HealthSystem>();
+            healthSystem.ChangeHealth(-1);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D col) 
+    {
+        
+    }
+
     // �׾��� ��
     private void Die()
     {
