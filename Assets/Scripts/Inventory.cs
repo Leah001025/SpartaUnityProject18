@@ -36,14 +36,14 @@ public class Inventory : MonoBehaviour //Inventory
 
     void FixedUpdate()
     {
-        if(Managers.Game.useWatch == true)
+        if(GameManager.Instance.useWatch == true)
         {
             time += Time.deltaTime;
             if(time < 4f) BattleManager.instance.nowBattle = false;
             else 
             {
                 time = 0;
-                Managers.Game.useWatch = false;
+                GameManager.Instance.useWatch = false;
             }
         }
     }
@@ -107,7 +107,7 @@ public class Inventory : MonoBehaviour //Inventory
     {
         if(item.name == "Watch")
         {
-            Managers.Game.useWatch = true;
+            GameManager.Instance.useWatch = true;
         }
         else if(item.name == "Skateboard")
         {
