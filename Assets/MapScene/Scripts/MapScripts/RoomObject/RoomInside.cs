@@ -6,7 +6,6 @@ using UnityEngine;
 public class RoomInside : MonoBehaviour
 {
     public bool isClear = false;
-    private int monsterCount = 0;
 
     [SerializeField] private GameObject MonsterCount;
     [SerializeField] private GameObject MiniMap;
