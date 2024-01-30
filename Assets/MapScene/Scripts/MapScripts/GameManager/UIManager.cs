@@ -52,16 +52,6 @@ public class UIManager : MonoBehaviour
         HPSlider.value = BattleManager.instance.playerCurrentHealth;
     }
 
-    public void OnGoEndingButton()//게임 클리어 버튼 눌렀을 때
-    {
-
-    }
-
-    public void OnGameOverButton()//게임 오버 버튼 눌렀을 때
-    {
-
-    }
-
     IEnumerator GoNextButton()
     {
         NextStageButton.transform.position = Vector3.Lerp(NextStageButton.transform.position, new Vector3(NextStageButton.transform.position.x, 16, NextStageButton.transform.position.z), Time.deltaTime * 2f);
