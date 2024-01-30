@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbce90601fb35414b86cec97b85b1569, type: 3}
   m_Name: Stage_Temp
   m_EditorClassIdentifier: 
+  stageName: TempName
   monsterList:
   - {fileID: 253496119414607006, guid: 95d7b7319cea82a499812ef32e65c89a, type: 3}
   - {fileID: 253496119414607006, guid: b7a9a0635fb432245b01c8fd9af2a614, type: 3}

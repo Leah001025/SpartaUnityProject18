@@ -55,11 +55,11 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            foreach (GameObject boss in BossCount)
+            for(int i = 0; i < BossCount.Count; i++)
             {
-                if (boss == null)
+                if (BossCount[i] == null)
                 {
-                    BossCount.Remove(boss);
+                    BossCount.RemoveAt(i);
                 }
             }
         }

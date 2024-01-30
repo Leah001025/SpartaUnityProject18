@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7529628662445845899}
   - component: {fileID: 7822497356136730133}
-  m_Layer: 6
+  m_Layer: 31
   m_Name: MapDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -851,7 +851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957732432254733124}
   - component: {fileID: 627038983038978227}
-  m_Layer: 6
+  m_Layer: 31
   m_Name: RoomMap
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -1065,7 +1065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6890201868767684418}
   - component: {fileID: 7866736157430907753}
-  m_Layer: 6
+  m_Layer: 31
   m_Name: MapDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1149,7 +1149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7664175098469455570}
   - component: {fileID: 1168391213236576521}
-  m_Layer: 6
+  m_Layer: 31
   m_Name: 'MapDoor '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1402,7 +1402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4249702286744381607}
   - component: {fileID: 2378332495875660814}
-  m_Layer: 6
+  m_Layer: 31
   m_Name: MapDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -170,4 +170,9 @@ public class RoomGenerateManager : MonoBehaviour//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿
             Destroy(room.gameObject);
         }
     }
+
+    public string GetStageName()
+    {
+        return stageinfo.stageName;
+    }
 }
