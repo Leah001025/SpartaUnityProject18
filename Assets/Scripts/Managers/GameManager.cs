@@ -25,6 +25,16 @@ public class Character
     public RuntimeAnimatorController animatorController;
 }
 
+public class Stat
+{
+    [SerializeField] private int baseStat;
+
+    public int GetStat()
+    {
+        return baseStat;
+    }
+}
+
 [Serializable]
 public class GameData
 {
