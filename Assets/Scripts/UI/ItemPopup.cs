@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class ItemPopup : UIBase // 추후 ItemPopup.cs와 겹치는 내용 UIBase로 병합
 {
-    [SerializeField] private GameObject chestSprite;
-    [SerializeField] private GameObject chestOpened;
     [SerializeField] private GameObject pop;
     [SerializeField] private GameObject popBack;
     [SerializeField] private Text iname;
@@ -27,8 +25,6 @@ public class ItemPopup : UIBase // 추후 ItemPopup.cs와 겹치는 내용 UIBas
     {
         pop.SetActive(false);
         popBack.SetActive(false);
-        Destroy(chestSprite);
-        chestOpened.SetActive(true);
     }
 
 }

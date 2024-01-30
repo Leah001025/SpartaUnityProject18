@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomGenerateManager : MonoBehaviour//°¢°¢ÀÇ ¹æÀÇ Å¬·¡½º¸¦ ¼³Á¤ÇÏ±â À§ÇÑ Å¬·¡½º
+public class RoomGenerateManager : MonoBehaviour//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 {
-    [SerializeField] private StageInfoSO stageinfo;//½ºÅ×ÀÌÁö Á¤º¸°¡ µé¾î°©´Ï´Ù.(¸ó½ºÅÍ ¸®½ºÆ®, º¸½º µî)
+    [SerializeField] private StageInfoSO stageinfo;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°©ï¿½Ï´ï¿½.(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
 
-    [SerializeField] private GameObject prefabsMap;//room °ÔÀÓ ¿ÀºêÁ§Æ®°¡ µé¾î°©´Ï´Ù.
+    [SerializeField] private GameObject prefabsMap;//room ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½î°©ï¿½Ï´ï¿½.
 
-    [SerializeField] private List<GameObject> roomSettingList;//¹æ ¸ð¾ç ¸®½ºÆ®
+    [SerializeField] private List<GameObject> roomSettingList;//ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
     [SerializeField] private GameObject itemRoomSetting;
 
     public static RoomGenerateManager instance;
@@ -18,10 +18,10 @@ public class RoomGenerateManager : MonoBehaviour//°¢°¢ÀÇ ¹æÀÇ Å¬·¡½º¸¦ ¼³Á¤ÇÏ±â 
         instance = this;
     }
 
-    public void SetRoom()//¹æÀÇ À¯Çü ¼±ÅÃ
+    public void SetRoom()//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
-        RoomList.DungeonRooms[0].RoomType = RoomType.START_ROOM;//Ã¹¹øÂ° ¹æÀº ½ºÅ¸Æ®ÁöÁ¡(¸ó½ºÅÍ°¡ ¾È³ª¿À°Ô)
-        RoomList.DungeonRooms[RoomList.DungeonRooms.Count - 1].RoomType = RoomType.BOSS_ROOM;//¸¶Áö¸· ¹æÀÌ º¸½º¹æ
+        RoomList.DungeonRooms[0].RoomType = RoomType.START_ROOM;//Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸Æ®ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Í°ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½)
+        RoomList.DungeonRooms[RoomList.DungeonRooms.Count - 1].RoomType = RoomType.BOSS_ROOM;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         RoomList.DungeonRooms[Random.Range(1, RoomList.DungeonRooms.Count - 2)].RoomType = RoomType.ITEM_ROOM;
 
         foreach (RoomInfo room in RoomList.DungeonRooms)
@@ -33,7 +33,7 @@ public class RoomGenerateManager : MonoBehaviour//°¢°¢ÀÇ ¹æÀÇ Å¬·¡½º¸¦ ¼³Á¤ÇÏ±â 
         }
     }
 
-    private RoomInfo FindFarestPointTo(RoomInfo startRoom, List<RoomInfo> rooms)//°¡Àå ¸Õ ¹æ À§Ä¡ Ã£±â
+    private RoomInfo FindFarestPointTo(RoomInfo startRoom, List<RoomInfo> rooms)//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ Ã£ï¿½ï¿½
     {
         RoomInfo closestRoom = null;
         float distance = 0;
@@ -51,18 +51,18 @@ public class RoomGenerateManager : MonoBehaviour//°¢°¢ÀÇ ¹æÀÇ Å¬·¡½º¸¦ ¼³Á¤ÇÏ±â 
         return closestRoom;
     }
 
-    public void GenerateRoom()//¹æ ¿ÀºêÁ§Æ® »ý¼º
+    public void GenerateRoom()//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
     {
         foreach(RoomInfo room in RoomList.DungeonRooms)
         {
             room.PrefabsObject = Instantiate(prefabsMap);
             room.PrefabsObject.transform.SetParent(GameObject.Find("Rooms").transform);
 
-            if(room.RoomType == RoomType.MONSTER_ROOM)//¸ó½ºÅÍ¹æ ÀÏ ¶§
+            if(room.RoomType == RoomType.MONSTER_ROOM)//ï¿½ï¿½ï¿½Í¹ï¿½ ï¿½ï¿½ ï¿½ï¿½
             {
                 SettingMonsterRoom(room.PrefabsObject);
             }
-            else if(room.RoomType == RoomType.BOSS_ROOM)//º¸½º¹æ ÀÏ ¶§
+            else if(room.RoomType == RoomType.BOSS_ROOM)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
             {
                 SettingBossRoom(room.PrefabsObject);
             }
@@ -74,70 +74,70 @@ public class RoomGenerateManager : MonoBehaviour//°¢°¢ÀÇ ¹æÀÇ Å¬·¡½º¸¦ ¼³Á¤ÇÏ±â 
             room.SetObject();
         }
 
-        BattleManager.instance.MonsterCountList.Clear();//¸ó½ºÅÍ ¼ö ÃÊ±âÈ­ 
+        BattleManager.instance.MonsterCountList.Clear();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê±ï¿½È­ 
     }
 
-    public void SettingMonsterRoom(GameObject parents)//¸ó½ºÅÍ·ë ¼¼ÆÃ
+    public void SettingMonsterRoom(GameObject parents)//ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         GameObject monster_room = Instantiate(roomSettingList[Random.Range(0, roomSettingList.Count)]);
-        monster_room.transform.SetParent(parents.transform);//ºÎ¸ð °´Ã¼ ¼³Á¤
+        monster_room.transform.SetParent(parents.transform);//ï¿½Î¸ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 
-        Transform spawnPointParent = monster_room.transform.Find("MonsterSpawnPoint");//¸ó½ºÅÍ ½ºÆù Æ÷ÀÎÆ® ¼³Á¤
-        List<Transform> monsterSpawnPoint = new List<Transform>();//½ºÆù Æ÷ÀÎÆ® ¸®½ºÆ®
+        Transform spawnPointParent = monster_room.transform.Find("MonsterSpawnPoint");//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+        List<Transform> monsterSpawnPoint = new List<Transform>();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®
 
         for (int i = 0; i < spawnPointParent.childCount; i++)
         {
-            monsterSpawnPoint.Add(spawnPointParent.GetChild(i));//½ºÆùÆ÷ÀÎÆ® °¹¼ö¸¸Å­ À§Ä¡¸¦ °¡Á®¿Í¼­ ¸®½ºÆ®¿¡ ÀúÀå
+            monsterSpawnPoint.Add(spawnPointParent.GetChild(i));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å­ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
 
-        foreach(Transform spawnPoint in monsterSpawnPoint)//¸ó½ºÅÍ ¼ÒÈ¯
+        foreach(Transform spawnPoint in monsterSpawnPoint)//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         {
-            //¿©±â¿¡ ¸ó½ºÅÍ¸¦ InstantiateÇÏ¸é µË´Ï´Ù.
-            GameObject monster = Instantiate(stageinfo.monsterList[Random.Range(0, stageinfo.monsterList.Count)], spawnPoint.position, Quaternion.identity);//¸ó½ºÅÍ °´Ã¼ »ý¼º
-            monster.transform.SetParent(parents.transform.Find("MonsterCount"));//ÇØ´ç ¹æ¿¡ ¼ÒÈ¯µÈ ¸ó½ºÅÍÀÇ ¼ö¸¦ ¼¼±â À§ÇØ ºÎ¸ð °´Ã¼¸¦ ¿Å±è
-            monster.SetActive(false);//¸ðµç ¸ó½ºÅÍµé ºñÈ°¼ºÈ­(È¤½Ã ¹æ ³Ê¸Ó¿¡¼­ ÇÃ·¹ÀÌ¾î¸¦ °¨ÁöÇÏ¿© ÇÃ·¹ÀÌ¾î¸¦ µû¶ó¿À´Â°ÍÀ» ¹æÁöÇÏ±â À§ÇÔ)
+            //ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½Í¸ï¿½ Instantiateï¿½Ï¸ï¿½ ï¿½Ë´Ï´ï¿½.
+            GameObject monster = Instantiate(stageinfo.monsterList[Random.Range(0, stageinfo.monsterList.Count)], spawnPoint.position, Quaternion.identity);//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+            monster.transform.SetParent(parents.transform.Find("MonsterCount"));//ï¿½Ø´ï¿½ ï¿½æ¿¡ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Å±ï¿½
+            monster.SetActive(false);//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Íµï¿½ ï¿½ï¿½È°ï¿½ï¿½È­(È¤ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê¸Ó¿ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½)
         }
     }
 
-    public void SettingBossRoom(GameObject parents)//º¸½º·ë ¼¼ÆÃ
+    public void SettingBossRoom(GameObject parents)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         GameObject boss_room = Instantiate(stageinfo.boss_Room);
-        boss_room.transform.SetParent(parents.transform);//ºÎ¸ð °´Ã¼ ¼³Á¤
+        boss_room.transform.SetParent(parents.transform);//ï¿½Î¸ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 
-        Transform spawnPointParent = boss_room.transform.Find("BossSpawnPoint");//º¸½º ½ºÆù Æ÷ÀÎÆ® ¼³Á¤
-        List<Transform> bossSpawnPoint = new List<Transform>();//½ºÆù Æ÷ÀÎÆ® ¸®½ºÆ®
+        Transform spawnPointParent = boss_room.transform.Find("BossSpawnPoint");//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+        List<Transform> bossSpawnPoint = new List<Transform>();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®
 
         for (int i = 0; i < spawnPointParent.childCount; i++)
         {
-            bossSpawnPoint.Add(spawnPointParent.GetChild(i));//½ºÆùÆ÷ÀÎÆ® °¹¼ö¸¸Å­ À§Ä¡¸¦ °¡Á®¿Í¼­ ¸®½ºÆ®¿¡ ÀúÀå
+            bossSpawnPoint.Add(spawnPointParent.GetChild(i));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å­ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
 
         int index = 0;
-        foreach (Transform spawnPoint in bossSpawnPoint)//º¸½º ¼ÒÈ¯
+        foreach (Transform spawnPoint in bossSpawnPoint)//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         {
-            GameObject boss = Instantiate(stageinfo.bossList[index++], spawnPoint.position, Quaternion.identity);//º¸½º °´Ã¼ »ý¼º
+            GameObject boss = Instantiate(stageinfo.bossList[index++], spawnPoint.position, Quaternion.identity);//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
             BattleManager.instance.BossCount.Add(boss);
-            boss.transform.SetParent(parents.transform.Find("MonsterCount"));//ÇØ´ç ¹æ¿¡ ¼ÒÈ¯µÈ ¸ó½ºÅÍÀÇ ¼ö¸¦ ¼¼±â À§ÇØ ºÎ¸ð °´Ã¼¸¦ ¿Å±è
-            boss.SetActive(false);//¸ðµç ¸ó½ºÅÍµé ºñÈ°¼ºÈ­(È¤½Ã ¹æ ³Ê¸Ó¿¡¼­ ÇÃ·¹ÀÌ¾î¸¦ °¨ÁöÇÏ¿© ÇÃ·¹ÀÌ¾î¸¦ µû¶ó¿À´Â°ÍÀ» ¹æÁöÇÏ±â À§ÇÔ)
+            boss.transform.SetParent(parents.transform.Find("MonsterCount"));//ï¿½Ø´ï¿½ ï¿½æ¿¡ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Å±ï¿½
+            boss.SetActive(false);//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Íµï¿½ ï¿½ï¿½È°ï¿½ï¿½È­(È¤ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê¸Ó¿ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½)
         }
 
         //------------------------------------------------------------
-        //º¸½º·ë¿¡¼­ Àâ¸÷ÀÌ µîÀå ÇÒ °æ¿ì »óÁ¤
-        spawnPointParent = boss_room.transform.Find("MonsterSpawnPoint");//¸ó½ºÅÍ ½ºÆù Æ÷ÀÎÆ® ¼³Á¤
-        List<Transform> monsterSpawnPoint = new List<Transform>();//½ºÆù Æ÷ÀÎÆ® ¸®½ºÆ®
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ë¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        spawnPointParent = boss_room.transform.Find("MonsterSpawnPoint");//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+        List<Transform> monsterSpawnPoint = new List<Transform>();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®
         if (spawnPointParent.childCount > 0)
         {
-            for (int i = 0; i < spawnPointParent.childCount; i++)//Àâ¸÷ÀÌ ÀÖÀ» ¶§
+            for (int i = 0; i < spawnPointParent.childCount; i++)//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
             {
-                monsterSpawnPoint.Add(spawnPointParent.GetChild(i));//½ºÆùÆ÷ÀÎÆ® °¹¼ö¸¸Å­ À§Ä¡¸¦ °¡Á®¿Í¼­ ¸®½ºÆ®¿¡ ÀúÀå
+                monsterSpawnPoint.Add(spawnPointParent.GetChild(i));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å­ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
 
-            foreach (Transform spawnPoint in monsterSpawnPoint)//¸ó½ºÅÍ ¼ÒÈ¯
+            foreach (Transform spawnPoint in monsterSpawnPoint)//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
             {
-                //¿©±â¿¡ ¸ó½ºÅÍ¸¦ InstantiateÇÏ¸é µË´Ï´Ù.
-                GameObject monster = Instantiate(stageinfo.monsterList[Random.Range(0, stageinfo.monsterList.Count)], spawnPoint.position, Quaternion.identity);//¸ó½ºÅÍ °´Ã¼ »ý¼º
-                monster.transform.SetParent(parents.transform.Find("MonsterCount"));//ÇØ´ç ¹æ¿¡ ¼ÒÈ¯µÈ ¸ó½ºÅÍÀÇ ¼ö¸¦ ¼¼±â À§ÇØ ºÎ¸ð °´Ã¼¸¦ ¿Å±è
-                monster.SetActive(false);//¸ðµç ¸ó½ºÅÍµé ºñÈ°¼ºÈ­(È¤½Ã ¹æ ³Ê¸Ó¿¡¼­ ÇÃ·¹ÀÌ¾î¸¦ °¨ÁöÇÏ¿© ÇÃ·¹ÀÌ¾î¸¦ µû¶ó¿À´Â°ÍÀ» ¹æÁöÇÏ±â À§ÇÔ)
+                //ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½Í¸ï¿½ Instantiateï¿½Ï¸ï¿½ ï¿½Ë´Ï´ï¿½.
+                GameObject monster = Instantiate(stageinfo.monsterList[Random.Range(0, stageinfo.monsterList.Count)], spawnPoint.position, Quaternion.identity);//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+                monster.transform.SetParent(parents.transform.Find("MonsterCount"));//ï¿½Ø´ï¿½ ï¿½æ¿¡ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Å±ï¿½
+                monster.SetActive(false);//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Íµï¿½ ï¿½ï¿½È°ï¿½ï¿½È­(È¤ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê¸Ó¿ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½)
             }
         }
     }
@@ -145,10 +145,25 @@ public class RoomGenerateManager : MonoBehaviour//°¢°¢ÀÇ ¹æÀÇ Å¬·¡½º¸¦ ¼³Á¤ÇÏ±â 
     public void SettingItemRoom(GameObject parents)
     {
         GameObject item_room = Instantiate(itemRoomSetting);
-        item_room.transform.SetParent(parents.transform);//ºÎ¸ð °´Ã¼ ¼³Á¤
+        item_room.transform.SetParent(parents.transform);//ï¿½Î¸ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+
+        Transform spawnPointParent = item_room.transform.Find("ItemSpawnPoint");//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+        List<Transform> itemSpawnPoint = new List<Transform>();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®
+
+        for (int i = 0; i < spawnPointParent.childCount; i++)
+        {
+            itemSpawnPoint.Add(spawnPointParent.GetChild(i));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å­ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        }
+
+        foreach(Transform spawnPoint in itemSpawnPoint)//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
+        {
+            //ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½Í¸ï¿½ Instantiateï¿½Ï¸ï¿½ ï¿½Ë´Ï´ï¿½.
+            GameObject item = Instantiate(stageinfo.itemList[Random.Range(0, stageinfo.itemList.Count)], spawnPoint.position, Quaternion.identity);//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+            item.transform.SetParent(parents.transform.Find("ItemCount"));//ï¿½Ø´ï¿½ ï¿½æ¿¡ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Å±ï¿½
+        }
     }
 
-    public void ClearRooms()//¸ðµç Room¿ÀºêÁ§Æ® »èÁ¦
+    public void ClearRooms()//ï¿½ï¿½ï¿½ Roomï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
     {
         foreach(Transform room in GameObject.Find("Rooms").transform)
         {

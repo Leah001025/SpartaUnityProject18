@@ -10,7 +10,6 @@ public class ItemDetailUI : UIBase // 추후 ItemPopup.cs와 겹치는 내용 UI
     [SerializeField] private Text iname;
     [SerializeField] private Text idetail;
     [SerializeField] private Image iimg;
-    public Inventory inventory;
     private Item thisItem = null;
 
     public void ShowItemPopup(Item item)
@@ -25,7 +24,7 @@ public class ItemDetailUI : UIBase // 추후 ItemPopup.cs와 겹치는 내용 UI
     
     public void OnClickUseBtn()
     {
-        inventory.UseItem(thisItem);
+        Inventory.ins.UseItem(thisItem);
         pop.SetActive(false);
         bag.SetActive(true);
     }
