@@ -19,5 +19,5 @@ public class PlayerStat
     [Range(1f, 20f)] public float speed;
     public AttackSO attackSO;
 
-    public float currentHealth { get; internal set; }
+    public float CurrentHealth { get; internal set; }
 }
