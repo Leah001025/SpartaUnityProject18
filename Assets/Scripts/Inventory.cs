@@ -37,7 +37,7 @@ public class Inventory : MonoBehaviour //Inventory
         if(useWatch == true)
         {
             time += Time.deltaTime;
-            if(time < 3f) BattleManager.instance.nowBattle = false;
+            if(time < 4f) BattleManager.instance.nowBattle = false;
             else 
             {
                 time = 0;
