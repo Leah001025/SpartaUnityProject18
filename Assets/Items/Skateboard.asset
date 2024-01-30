@@ -16,3 +16,8 @@ MonoBehaviour:
   itemDetail: "\uC774\uB3D9\uC18D\uB3C4\uAC00 \uC99D\uAC00\uD55C\uB2E4."
   itemImage: {fileID: 21300000, guid: 0c26e4090431f2b4bb8349d6d71baa39, type: 3}
   useImage: {fileID: 21300000, guid: 44cfe2a8d6659a24c8a7293b4c0189b2, type: 3}
+  statModifiers:
+    statsChangeType: 0
+    maxHealth: 0
+    speed: 4
+    attackSO: {fileID: 0}

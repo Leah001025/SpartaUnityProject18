@@ -121,7 +121,7 @@ public class Inventory : MonoBehaviour //Inventory
             Debug.Log("레몬파이사용");
             // hp 회복
             _healthSystem = player.GetComponent<HealthSystem>();
-            _healthSystem.ChangeHealth(20);
+            _healthSystem.ChangeHealth(20f);
         }
         else if(item.name == "RunningShoes")
         {
