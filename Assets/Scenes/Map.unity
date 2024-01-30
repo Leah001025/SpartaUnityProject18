@@ -3109,7 +3109,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 2.0666666}
+    oldSize: {x: 0.5625, y: 0.96875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -133601,7 +133601,6 @@ MonoBehaviour:
   baseStats:
     statsChangeType: 2
     maxHealth: 100
-    currentHealth: 1
     speed: 5
     attackSO: {fileID: 11400000, guid: 17de22ed7e1281c4db43627f51eadb9b, type: 2}
   statsModifiers: []
@@ -136761,7 +136760,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1610616247
+    m_Bits: 1610616759
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
