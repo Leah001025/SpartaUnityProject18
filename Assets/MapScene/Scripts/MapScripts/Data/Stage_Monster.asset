@@ -16,7 +16,7 @@ MonoBehaviour:
   monsterList:
   - {fileID: 4473522097501083534, guid: c6199feb2711d2a4eaa5891d1185aa96, type: 3}
   bossList:
-  - {fileID: 4473522097501083534, guid: c6199feb2711d2a4eaa5891d1185aa96, type: 3}
+  - {fileID: 2193551573177588386, guid: 8d64fe555d1cd234b809a1a9b40aba75, type: 3}
   itemList:
   - {fileID: 2488863825330763235, guid: 10fb0a0262007134dab2cf52fce9f91f, type: 3}
   boss_Room: {fileID: 9034770804327252798, guid: f44e6f7ae78215b48a0957065ff8c85c, type: 3}
