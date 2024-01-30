@@ -49,6 +49,8 @@ public class GameManager
     public List<Character> CharacterList = new List<Character>();
     public GameState CurrentState { get; private set; }
 
+    public bool useWatch = false;
+
     public void Init()
     {
         ChangeState(GameState.Start);
@@ -112,6 +114,7 @@ public class GameManager
         // SceneManager.LoadScene("GameOver"); // 게임 오버 씬 로드 or UI 활성화
         // 추가적인 게임 오버 처리 작업...
     }
+
 
     #region Victory & Defeat
     void Victory()
