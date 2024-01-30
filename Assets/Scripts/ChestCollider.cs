@@ -17,7 +17,6 @@ public class ChestCollider : MonoBehaviour // ChestSprite
     void Awake()
     {
         itemPopup = GameObject.Find("ItemPopup").GetComponent<ItemPopup>();
-        Debug.Log(itemPopup);
         animator = GetComponent<Animator>();
     }
 
@@ -35,7 +34,6 @@ public class ChestCollider : MonoBehaviour // ChestSprite
 
     private void OnCollisionEnter2D(Collision2D col) 
     {
-        Debug.Log("collide");
         var obj = col.gameObject;
         if (obj.tag == "Player")
         {
