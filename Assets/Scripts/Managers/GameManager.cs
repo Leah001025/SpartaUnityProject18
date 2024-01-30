@@ -38,6 +38,7 @@ public class Stat
 [Serializable]
 public class GameData
 {
+
 }
 
 public class GameManager
