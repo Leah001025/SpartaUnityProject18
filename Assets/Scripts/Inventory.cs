@@ -1,17 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour //Inventory
 {
+    public static Inventory ins { get; private set; }
     public static bool inventoryActivated = false;
     public List<Item> items;
+    private float time = 0f;
 
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject bag;
     [SerializeField] private Transform slotParent;
     [SerializeField] private Slot[] slots;
+    private HealthSystem _healthSystem;
 
     private void OnValidate() // change slots if changed by editor
     {
@@ -20,12 +25,27 @@ public class Inventory : MonoBehaviour //Inventory
 
     void Awake() 
     {
+        ins = this;
         FreshSlot();
     }
 
     void Update()
     {
         TryOpenInventory();
+    }
+
+    void FixedUpdate()
+    {
+        if(GameManager.Instance.useWatch == true)
+        {
+            time += Time.deltaTime;
+            if(time < 4f) BattleManager.instance.nowBattle = false;
+            else 
+            {
+                time = 0;
+                GameManager.Instance.useWatch = false;
+            }
+        }
     }
 
     private void TryOpenInventory()
@@ -85,25 +105,30 @@ public class Inventory : MonoBehaviour //Inventory
 
     public void UseItem(Item item)
     {
-        if(item.name == "CurryRice")
+        if(item.name == "Watch")
         {
-            Debug.Log("체력 1 회복");
-            // hp 회복
+            GameManager.Instance.useWatch = true;
         }
-        else if(item.name == "Scateboard")
+        else if(item.name == "Skateboard")
         {
             Debug.Log("이동속도 증가");
             // 이속증가
+            CharacterStatHandler statHandler = player.GetComponent<CharacterStatHandler>();
+            statHandler.AddStatModifier(item.statModifiers);
         }
         else if(item.name == "LemonPie")
         {
             Debug.Log("레몬파이사용");
             // hp 회복
+            _healthSystem = player.GetComponent<HealthSystem>();
+            _healthSystem.ChangeHealth(20f);
         }
         else if(item.name == "RunningShoes")
         {
             Debug.Log("운동화사용");
             // 데미지 증가
+            CharacterStatHandler statHandler = player.GetComponent<CharacterStatHandler>();
+            statHandler.AddStatModifier(item.statModifiers);
         }
         else 
         {

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputController : PlayerController 
 {
+
     public void OnMove(InputValue value)
     {
         Vector2 moveInput = value.Get<Vector2>();
@@ -17,5 +18,10 @@ public class PlayerInputController : PlayerController
 
         newAim = (worldPos - (Vector2)transform.position).normalized;
         CallLookEvent(newAim);
+    }
+
+    public void OnFire(InputValue value)
+    {
+        IsAttacking = value.isPressed;
     }
 }

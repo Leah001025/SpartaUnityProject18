@@ -22,24 +22,45 @@ public class Character
 {
     public CharacterType CharacterType;
     public Sprite CharacterSprite;
+    public Sprite CharacterPortrait;
     public RuntimeAnimatorController animatorController;
+}
+
+public class Stat
+{
+    [SerializeField] private int baseStat;
+
+    public int GetStat()
+    {
+        return baseStat;
+    }
 }
 
 [Serializable]
 public class GameData
 {
+
 }
 
-public class GameManager
+public class GameManager : MonoBehaviour
 {
 	GameData _gameData = new GameData();
+
+    public static GameManager Instance;
+
     public GameData SaveData { get { return _gameData; } set { _gameData = value; } }
 
     public List<Character> CharacterList = new List<Character>();
+
+    public CharacterType nowCharacter;
+
     public GameState CurrentState { get; private set; }
 
-    public void Init()
+    public bool useWatch = false;
+
+    public void Awake()
     {
+        Instance = this;
         ChangeState(GameState.Start);
     }
 
@@ -102,6 +123,7 @@ public class GameManager
         // 추가적인 게임 오버 처리 작업...
     }
 
+
     #region Victory & Defeat
     void Victory()
     {
@@ -114,31 +136,31 @@ public class GameManager
     }
     #endregion
 
-    #region Save & Load
-    public string _path = Application.persistentDataPath + "/SaveData.json";
+    //#region Save & Load
+    //public string _path = Application.persistentDataPath + "/SaveData.json";
     
-    public void SaveGame()
-    {
-        string jsonStr = JsonUtility.ToJson(Managers.Game.SaveData);
-        File.WriteAllText(_path, jsonStr);
-        Debug.Log($"Save Game Completed : {_path}");
-    }
+    //public void SaveGame()
+    //{
+    //    string jsonStr = JsonUtility.ToJson(GameManager.Instance.SaveData);
+    //    File.WriteAllText(_path, jsonStr);
+    //    Debug.Log($"Save Game Completed : {_path}");
+    //}
 
-    public bool LoadGame()
-    {
-        if (File.Exists(_path) == false)
-            return false;
+    //public bool LoadGame()
+    //{
+    //    if (File.Exists(_path) == false)
+    //        return false;
 
-        string fileStr = File.ReadAllText(_path);
-        GameData data = JsonUtility.FromJson<GameData>(fileStr);
-        if (data != null)
-        {
-            Managers.Game.SaveData = data;
-        }
+    //    string fileStr = File.ReadAllText(_path);
+    //    GameData data = JsonUtility.FromJson<GameData>(fileStr);
+    //    if (data != null)
+    //    {
+    //        GameManager.Instance.SaveData = data;
+    //    }
 
-        Debug.Log($"Save Game Loaded : {_path}");
-        return true;
-    }
+    //    Debug.Log($"Save Game Loaded : {_path}");
+    //    return true;
+    //}
     
-    #endregion
+    //#endregion
 }

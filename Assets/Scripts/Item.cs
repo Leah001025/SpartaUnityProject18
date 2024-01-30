@@ -11,4 +11,6 @@ public class Item : ScriptableObject
     public string itemName;
     public string itemDetail;
     public Sprite itemImage;
+    public Sprite useImage;
+    public PlayerStat statModifiers;
 }

@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class ItemDetailUI : UIBase // 추후 ItemPopup.cs와 겹치는 내용 UIBase로 병합
 {
+    [SerializeField] private Image useImage;
+    [SerializeField] private GameObject useBackground;
     [SerializeField] private GameObject bag;
     [SerializeField] private GameObject pop;
     [SerializeField] private Text iname;
     [SerializeField] private Text idetail;
     [SerializeField] private Image iimg;
-    public Inventory inventory;
     private Item thisItem = null;
 
     public void ShowItemPopup(Item item)
@@ -25,14 +26,28 @@ public class ItemDetailUI : UIBase // 추후 ItemPopup.cs와 겹치는 내용 UI
     
     public void OnClickUseBtn()
     {
-        inventory.UseItem(thisItem);
         pop.SetActive(false);
-        bag.SetActive(true);
+        ItemUseEffect();
+        Inventory.ins.UseItem(thisItem);
     }
 
     public void OnClickExitBtn()
     {
         pop.SetActive(false);
         bag.SetActive(true);
+    }
+
+    public void ItemUseEffect()
+    {
+        useImage.sprite = thisItem.useImage;
+        Animator anim = useBackground.GetComponent<Animator>();
+        useBackground.SetActive(true);
+        anim.SetBool("IsUse", true);
+        Invoke("SetActiveFalse", 1.1f);
+    }
+
+    public void SetActiveFalse()
+    {
+        useBackground.SetActive(false);
     }
 }

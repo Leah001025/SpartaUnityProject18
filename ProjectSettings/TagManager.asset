@@ -4,10 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Room
   - Door
   - Enemy
   - Item
+  - Weapon
+  - Room
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - 
   - Item
   - Player
-  - 
+  - Monster
   - Item
   - Player
   - 
@@ -38,8 +39,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Level
+  - FloorObstacle
   - Minimap
   m_SortingLayers:
   - name: Default
