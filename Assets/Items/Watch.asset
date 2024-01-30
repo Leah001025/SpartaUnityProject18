@@ -16,3 +16,4 @@ MonoBehaviour:
   itemDetail: "\uB9C8\uCDE8\uCE68\uC744 \uBC1C\uC0AC\uD558\uC5EC \uBAAC\uC2A4\uD130\uB97C
     \uD55C\uB3D9\uC548 \uACEF\uC544\uB5A8\uC5B4\uC9C0\uAC8C \uB9CC\uB4E0\uB2E4."
   itemImage: {fileID: 21300000, guid: d3721ef33f7207041a7ce8c1ff73bd30, type: 3}
+  useImage: {fileID: 21300000, guid: 8137a071fbf2cb240a347c1ecf28a3d1, type: 3}
