@@ -8,7 +8,9 @@ public class Monster : MonoBehaviour
     private bool isLive = true;
     [SerializeField] private Transform target;
     private Vector2 pos;
-    private int hp = 3;
+    private float power = 0;
+    private CharacterStatHandler characterStatHandler = null;
+    private float hp = 6;
     private bool isMoveAround = false;
 
     Rigidbody2D rigid;
@@ -19,6 +21,7 @@ public class Monster : MonoBehaviour
 
     private void Awake()
     {
+        characterStatHandler = GameObject.Find("Player").GetComponent<CharacterStatHandler>();
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -26,16 +29,17 @@ public class Monster : MonoBehaviour
 
     void FixedUpdate()
     {
+        power = characterStatHandler.CurrentStats.attackSO.power;
         //IsBossMonsterDie();
         Move();
     }
 
-    // º¸½º¹æ¿¡¼­ º¸½º°¡ Á×¾ú´ÂÁö È®ÀÎ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
     private void IsBossMonsterDie()
     {
         isBossLive = bossScript.isLive;
 
-        // º¸½º°¡ Á×¾ú´Ù¸é
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½Ù¸ï¿½
         if (!isBossLive)
         {
             isLive = false;
@@ -43,12 +47,12 @@ public class Monster : MonoBehaviour
         }
     }
 
-    // ¸ó½ºÅÍ ¿òÁ÷ÀÓ
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private void Move()
     {
         float distance = Vector2.Distance(target.position, transform.position);
 
-        // ÇÃ·¹ÀÌ¾î°¡ ¸ó½ºÅÍ°¡ ÀÎ½ÄÇÒ ¼ö ÀÖ´Â ¹üÀ§¿¡ ÀÖÀ» ¶§
+        // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         if (distance < 16)
         {
             isMoveAround = false;
@@ -60,15 +64,15 @@ public class Monster : MonoBehaviour
         }
     }
 
-    // ÇÃ·¹ÀÌ¾î¸¦ ÃßÀûÇÑ´Ù.
+    // ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
     private void FollowTarget()
     {
         if (isLive)
         {
-            // ÇÃ·¹ÀÌ¾î°¡ ÀÖ´Â ¹æÇâÀ¸·Î ¸ó½ºÅÍ ÀÌ¹ÌÁö ¹æÇâ ÀüÈ¯
+            // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
             spriter.flipX = target.position.x > rigid.position.x;
 
-            // ÇÃ·¹ÀÌ¾î°¡ ÀÖ´Â °÷À» ÇâÇØ¼­ ¿òÁ÷ÀÓ
+            // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             Vector2 dirVec = target.position - transform.position;
             Vector2 nextVec = dirVec.normalized * speed * 2.0f * Time.fixedDeltaTime;
             rigid.MovePosition(rigid.position + nextVec);
@@ -76,7 +80,7 @@ public class Monster : MonoBehaviour
         }
     }
 
-    // ¸ó½ºÅÍ°¡ µ¹¾Æ´Ù´Ñ´Ù.
+    // ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½Æ´Ù´Ñ´ï¿½.
     private void MoveAround()
     {
         if (isLive)
@@ -87,7 +91,7 @@ public class Monster : MonoBehaviour
             }
             isMoveAround = true;
 
-            // ¿òÁ÷ÀÌ´Â ¹æÇâÀ¸·Î ÀÌ¹ÌÁö ÀüÈ¯
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
             spriter.flipX = rigid.position.x + pos.x > rigid.position.x;
 
             rigid.velocity = pos * speed;
@@ -104,12 +108,12 @@ public class Monster : MonoBehaviour
         Invoke("NextPos", 2f);
     }
 
-    // °ø°Ý¹Þ¾ÒÀ» ¶§
+    // ï¿½ï¿½ï¿½Ý¹Þ¾ï¿½ï¿½ï¿½ ï¿½ï¿½
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Weapon")
         {
-            hp--;
+            hp -= power;
 
             if (hp <= 0)
             {
@@ -119,7 +123,7 @@ public class Monster : MonoBehaviour
         }
     }
 
-    // Á×¾úÀ» ¶§
+    // ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½
     private void Die()
     {
         Destroy(gameObject);
