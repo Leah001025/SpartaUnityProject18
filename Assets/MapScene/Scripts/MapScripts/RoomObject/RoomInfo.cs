@@ -13,46 +13,46 @@ public class RoomInfo
 {
     private GameObject prefabsObject;
 
-    private GameObject RoomSquare;//¹æ ÀÔÀå Ã¼Å©¸¦ À§ÇÑ »ç°¢Çü
+    private GameObject RoomSquare;//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ç°¢ï¿½ï¿½
 
-    public GameObject TopDoorObject;//À§ÂÊ ¹® ¿ÀºêÁ§Æ®
-    public GameObject BottomDoorObject;//¾Æ·¡ ÂÊ ¹® ¿ÀºêÁ§Æ®
-    public GameObject LeftDoorObject;//¿ÞÂÊ ¹® ¿ÀºêÁ§Æ®
-    public GameObject RightDoorObject;//¿À¸¥ÂÊ ¹® ¿ÀºêÁ§Æ®
+    public GameObject TopDoorObject;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+    public GameObject BottomDoorObject;//ï¿½Æ·ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+    public GameObject LeftDoorObject;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+    public GameObject RightDoorObject;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 
-    public BoundsInt room;//¹æ ÀüÃ¼
-    public Vector2Int center;// ¹æ Áß¾Ó À§Ä¡
-    public RoomType roomType;// ¹æ Å¸ÀÔ
+    public BoundsInt room;//ï¿½ï¿½ ï¿½ï¿½Ã¼
+    public Vector2Int center;// ï¿½ï¿½ ï¿½ß¾ï¿½ ï¿½ï¿½Ä¡
+    public RoomType roomType;// ï¿½ï¿½ Å¸ï¿½ï¿½
 
-    private int width = 36;// ¹æ ³ÐÀÌ
-    private int height = 26;//¹æ ³ôÀÌ
+    private int width = 36;// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private int height = 26;//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    public bool hasDoor = false;//¿¬°áµÈ º¹µµ°¡ ÀÖ´ÂÁö È®ÀÎ
+    public bool hasDoor = false;//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 
     public bool IsTopDoor = false;
     public bool IsBottomDoor = false;
     public bool IsRightDoor = false;
     public bool IsLeftDoor = false;
 
-    public RoomInfo leftDoorDestination;//¿ÞÂÊ ¹®°ú ¿¬°áµÇ ¹æ
-    public RoomInfo rightDoorDestination;//¿À¸¥ÂÊ ¹®°ú ¿¬°áµÇ ¹æ
-    public RoomInfo topDoorDestination;//À§ÂÊ ¹®°ú ¿¬°áµÇ ¹æ
-    public RoomInfo bottomDoorDestination;//¾Æ·¡ÂÊ ¹®°ú ¿¬°áµÇ ¹æ
+    public RoomInfo leftDoorDestination;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    public RoomInfo rightDoorDestination;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    public RoomInfo topDoorDestination;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    public RoomInfo bottomDoorDestination;//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
-    public Vector2Int leftDoor;//ÇöÀç ¹æÀÇ ¿ÞÂÊ ¹® À§Ä¡
-    public Vector2Int rightDoor;//ÇöÀç ¹æÀÇ ¿À¸¥ÂÊ ¹® À§Ä¡
-    public Vector2Int topDoor;//ÇöÀç ¹æÀÇ À§ÂÊ ¹® À§Ä¡
-    public Vector2Int bottomDoor;//ÇöÀç ¹æÀÇ ¾Æ·¡ÂÊ ¹® À§Ä¡
+    public Vector2Int leftDoor;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public Vector2Int rightDoor;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public Vector2Int topDoor;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public Vector2Int bottomDoor;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡
 
-    public Vector2Int leftDoorEntrance;//¿ÞÂÊ ¹®À¸·Î µé¾î°¬À» ¶§, ³ª¿À´Â À§Ä¡
-    public Vector2Int rightDoorEntrance;//¿À¸¥ÂÊ ¹®À¸·Î µé¾î°¬À» ¶§, ³ª¿À´Â À§Ä¡
-    public Vector2Int bottomDoorEntrance;//À§ÂÊ ¹®À¸·Î µé¾î°¬À» ¶§, ³ª¿À´Â À§Ä¡
-    public Vector2Int topDoorEntrance;//¾Æ·¡ÂÊ ¹®À¸·Î µé¾î°¬À» ¶§, ³ª¿À´Â À§Ä¡
+    public Vector2Int leftDoorEntrance;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¬ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public Vector2Int rightDoorEntrance;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¬ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public Vector2Int bottomDoorEntrance;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¬ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public Vector2Int topDoorEntrance;//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¬ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 
-    public Vector2Int leftSpawnPoint;//¿ÞÂÊ¿¡¼­ ³ª¿À´Â À§Ä¡
-    public Vector2Int rightSpawnPoint;//¿À¸¥ÂÊ¿¡¼­ ³ª¿À´Â À§Ä¡
-    public Vector2Int topSpawnPoint;//À§ÂÊ¿¡¼­ ³ª¿À´Â À§Ä¡
-    public Vector2Int bottomSpawnPoint;//¾Æ·¡ÂÊ¿¡¼­ ³ª¿À´Â À§Ä¡
+    public Vector2Int leftSpawnPoint;//ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public Vector2Int rightSpawnPoint;//ï¿½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public Vector2Int topSpawnPoint;//ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public Vector2Int bottomSpawnPoint;//ï¿½Æ·ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 
     public RoomInfo(Vector2Int center)
     {
@@ -72,9 +72,9 @@ public class RoomInfo
         bottomSpawnPoint = this.center - new Vector2Int(0, (height / 2) - 2);
     }
 
-    private BoundsInt CreateRooms(Vector2Int center, int width, int height)//¹æ »ý¼º
+    private BoundsInt CreateRooms(Vector2Int center, int width, int height)//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
-        BoundsInt box = new BoundsInt(new Vector3Int(center.x - (width / 2), center.y - (height / 2), 0), new Vector3Int(width, height, 0));//¹æ ¸¸µé±â
+        BoundsInt box = new BoundsInt(new Vector3Int(center.x - (width / 2), center.y - (height / 2), 0), new Vector3Int(width, height, 0));//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 
         return box;
     }
@@ -131,7 +131,7 @@ public class RoomInfo
 
     //-------------------------------------------------------------------------------------------------------------
 
-    public void SetObject()//°ÔÀÓ ¿ÀºêÁ§Æ® ¼³Á¤
+    public void SetObject()//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
     {
         prefabsObject.transform.position = (Vector3Int)center;
         RoomSquare = prefabsObject.transform.Find("RoomInside").gameObject;
@@ -150,6 +150,7 @@ public class RoomInfo
                 roomMap.GetComponent<SpriteRenderer>().color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 150 / 255f);
                 break;
             case RoomType.ITEM_ROOM:
+                RoomSquare.GetComponent<RoomInside>().isClear = true;
                 roomMap.GetComponent<SpriteRenderer>().color = new Color(50 / 255f, 255 / 255f, 50 / 255f, 150 / 255f);
                 break;
         }
@@ -166,7 +167,7 @@ public class RoomInfo
         OpenDoor();
     }
 
-    private void ActiveDoor()//¹® »ý¼º
+    private void ActiveDoor()//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         if (IsTopDoor)
         {
@@ -189,7 +190,7 @@ public class RoomInfo
             RightDoorObject.transform.Find("OpenedDoor").GetComponent<Telepoter>().TelepotePosition = rightDoorEntrance;
         }
 
-        //º¸½º·ë ¹® ´Ù¸£°Ô
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½
         if(topDoorDestination?.roomType == RoomType.BOSS_ROOM)
         {
             TopDoorObject.transform.Find("OpenedDoor").GetComponent<SpriteRenderer>().color = Color.red;
@@ -212,7 +213,7 @@ public class RoomInfo
         }
     }
 
-    public void CloseDoor()//¹® ´Ý±â
+    public void CloseDoor()//ï¿½ï¿½ ï¿½Ý±ï¿½
     {
         if (IsTopDoor)
         {
@@ -236,7 +237,7 @@ public class RoomInfo
         }
     }
 
-    public void OpenDoor()//¹® ¿­±â
+    public void OpenDoor()//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         if (IsTopDoor)
         {
@@ -262,7 +263,7 @@ public class RoomInfo
 
 
 
-    //-------------------------------------------------------------------------------------------------------------//¹® ¿¬°áÇÏ±â
+    //-------------------------------------------------------------------------------------------------------------//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 
     public void SetSpawnPoint(Vector2Int spawnPoint, RoomInfo destinationRoom, Vector2Int direction)
     {
@@ -284,7 +285,7 @@ public class RoomInfo
         }
     }
 
-    public void OpenDoor( Vector2Int direction, RoomInfo destinationRoom, Vector2Int destination)//°¢°¢ÀÇ ¹®ÀÇ ¸ñÀûÁö ¼³Á¤(ÇöÀç ¹æÀÇ ¹® ¹æÇâ, ¿¬°áµÈ ¹æ, ¿¬°áµÈ ¹æÀÇ ¹® ¹æÇâ)
+    public void OpenDoor( Vector2Int direction, RoomInfo destinationRoom, Vector2Int destination)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
     {
         if (direction == Vector2Int.up)
         {

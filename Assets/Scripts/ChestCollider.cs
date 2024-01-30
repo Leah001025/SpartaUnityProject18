@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
@@ -10,11 +11,12 @@ public class ChestCollider : MonoBehaviour // ChestSprite
     private Animator animator;
     [SerializeField] private GameObject EKey;
     [SerializeField] private Item item;
-    public ItemPopup itemPopup;
-    public Inventory inventory;
+    [SerializeField] private GameObject ChestOpened;
+    private ItemPopup itemPopup;
     
     void Awake()
     {
+        itemPopup = GameObject.Find("ItemPopup").GetComponent<ItemPopup>();
         animator = GetComponent<Animator>();
     }
 
@@ -32,7 +34,6 @@ public class ChestCollider : MonoBehaviour // ChestSprite
 
     private void OnCollisionEnter2D(Collision2D col) 
     {
-        Debug.Log("collide");
         var obj = col.gameObject;
         if (obj.tag == "Player")
         {
@@ -59,8 +60,10 @@ public class ChestCollider : MonoBehaviour // ChestSprite
 
     private void OpenChest()
     {
-        inventory.AddItem(item);
+        Inventory.ins.AddItem(item);
         itemPopup.ShowItemPopup(item);
+        ChestOpened.SetActive(true);
+        Destroy(gameObject);
     }
 
     public void OpenChestInvoke()

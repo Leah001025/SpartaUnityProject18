@@ -6,8 +6,11 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour //Inventory
 {
+    public static Inventory ins { get; private set; }
     public static bool inventoryActivated = false;
     public List<Item> items;
+    private bool useWatch = false;
+    private float time = 0f;
 
     [SerializeField] private GameObject bag;
     [SerializeField] private Transform slotParent;
@@ -20,12 +23,27 @@ public class Inventory : MonoBehaviour //Inventory
 
     void Awake() 
     {
+        ins = this;
         FreshSlot();
     }
 
     void Update()
     {
         TryOpenInventory();
+    }
+
+    void FixedUpdate()
+    {
+        if(useWatch == true)
+        {
+            time += Time.deltaTime;
+            if(time < 3f) BattleManager.instance.nowBattle = false;
+            else 
+            {
+                time = 0;
+                useWatch = false;
+            }
+        }
     }
 
     private void TryOpenInventory()
@@ -85,12 +103,11 @@ public class Inventory : MonoBehaviour //Inventory
 
     public void UseItem(Item item)
     {
-        if(item.name == "CurryRice")
+        if(item.name == "Watch")
         {
-            Debug.Log("체력 1 회복");
-            // hp 회복
+            useWatch = true;
         }
-        else if(item.name == "Scateboard")
+        else if(item.name == "Skateboard")
         {
             Debug.Log("이동속도 증가");
             // 이속증가
