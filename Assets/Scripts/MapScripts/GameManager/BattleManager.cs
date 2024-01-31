@@ -40,7 +40,7 @@ public class BattleManager : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        playerCurrentHealth = playerhealthSystem.CurrentHealth / playerhealthSystem.MaxHealth;
+        playerCurrentHealth = playerhealthSystem.CurrentHealth / playerhealthSystem.MaxHealth;// 현재 체력을 slider로 표시하기 위한 값
     }
 
     // Start is called before the first frame update
@@ -51,27 +51,27 @@ public class BattleManager : MonoBehaviour
         RandomWalkGenerator.Instance.GenerateDungeon();
         UpdateHealthUI();
 
-        var character = GameManager.Instance.CharacterList.Find(item => item.CharacterType == GameManager.Instance.nowCharacter);
+        var character = GameManager.Instance.CharacterList.Find(item => item.CharacterType == GameManager.Instance.nowCharacter);//GameManager에서 현재 캐릭터 정보를 받아옴
 
-        Player.transform.Find("MainSprite").GetComponent<SpriteRenderer>().sprite = character.CharacterSprite;
-        Player.transform.Find("MainSprite").GetComponent<Animator>().runtimeAnimatorController = character.animatorController;
+        Player.transform.Find("MainSprite").GetComponent<SpriteRenderer>().sprite = character.CharacterSprite;//캐릭터의 스프라이트를 변경
+        Player.transform.Find("MainSprite").GetComponent<Animator>().runtimeAnimatorController = character.animatorController;//캐릭터의 애니메이션을 변경
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (nowBattle)
+        if (nowBattle)//전투중일 때
         {
             foreach(RoomInfo room in RoomList.DungeonRooms)
             {
-                room.CloseDoor();
+                room.CloseDoor();//모든 문 닫음
             }
         }
-        else
+        else//아닐 때
         {
             foreach (RoomInfo room in RoomList.DungeonRooms)
             {
-                room.OpenDoor();
+                room.OpenDoor();//모든 문 열기
             }
         }
     }
@@ -80,7 +80,7 @@ public class BattleManager : MonoBehaviour
     {
         UpdateCount();
 
-        if (BossCount.Count == 0)
+        if (BossCount.Count == 0)//List의 수가 0이면(보스 오브젝트가 없으면)
         {
             bossDead = true;
         }
@@ -88,9 +88,9 @@ public class BattleManager : MonoBehaviour
         {
             for(int i = 0; i < BossCount.Count; i++)
             {
-                if (BossCount[i] == null)
+                if (BossCount[i] == null)//만일 보스몬스터가 죽었다면(보스 오브젝트가 destroy되었다면),
                 {
-                    BossCount.RemoveAt(i);
+                    BossCount.RemoveAt(i);//List삭제
                 }
             }
         }
@@ -99,7 +99,7 @@ public class BattleManager : MonoBehaviour
     private void UpdateCount()
     {
         currentMonsterCount = 0;
-        foreach(GameObject count in MonsterCountList)
+        foreach(GameObject count in MonsterCountList)//모든 방에 남아있는 몬스터 수 세기
         {
             currentMonsterCount += count.transform.childCount;
         }
