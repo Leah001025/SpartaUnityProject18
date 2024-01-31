@@ -83,3 +83,6 @@ https://shields.io/badges : 아이콘이나 명찰 등 만드는 곳
  - 플레이어의 체력이 0이 될 경우, 게임오버가 됩니다. 이 경우 모든 아이템들이 초기화되며, 게임을 처음부터 다시 도전해야 합니다.
 
 ----
+
+## 시연 영상
+[![Video Label](http://img.youtube.com/vi/vJ2XUdvDFr4/0.jpg)](https://youtu.be/vJ2XUdvDFr4)
