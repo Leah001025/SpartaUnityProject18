@@ -13,46 +13,46 @@ public class RoomInfo
 {
     private GameObject prefabsObject;
 
-    private GameObject RoomSquare;//�� ���� üũ�� ���� �簢��
+    private GameObject RoomSquare;//방 오브젝트
 
-    public GameObject TopDoorObject;//���� �� ������Ʈ
-    public GameObject BottomDoorObject;//�Ʒ� �� �� ������Ʈ
-    public GameObject LeftDoorObject;//���� �� ������Ʈ
-    public GameObject RightDoorObject;//������ �� ������Ʈ
+    public GameObject TopDoorObject;//위쪽 문
+    public GameObject BottomDoorObject;//아래쪽 문
+    public GameObject LeftDoorObject;//왼쪽 문
+    public GameObject RightDoorObject;//오른쪽 문
 
-    public BoundsInt room;//�� ��ü
-    public Vector2Int center;// �� �߾� ��ġ
-    public RoomType roomType;// �� Ÿ��
+    public BoundsInt room;//방의 면적
+    public Vector2Int center;//방의 중앙
+    public RoomType roomType;//방의 유형
 
-    private int width = 36;// �� ����
-    private int height = 26;//�� ����
+    private int width = 36;//방 넓이
+    private int height = 26;//방 높이
 
-    public bool hasDoor = false;//����� ������ �ִ��� Ȯ��
+    public bool hasDoor = false;//통로가 있는지 확인
 
     public bool IsTopDoor = false;
     public bool IsBottomDoor = false;
     public bool IsRightDoor = false;
     public bool IsLeftDoor = false;
 
-    public RoomInfo leftDoorDestination;//���� ���� ����� ��
-    public RoomInfo rightDoorDestination;//������ ���� ����� ��
-    public RoomInfo topDoorDestination;//���� ���� ����� ��
-    public RoomInfo bottomDoorDestination;//�Ʒ��� ���� ����� ��
+    public RoomInfo leftDoorDestination;//왼쪽 문으로 들어갔을 때 목표방
+    public RoomInfo rightDoorDestination;//오른쪽 문으로 들어갔을 때 목표방
+    public RoomInfo topDoorDestination;//위족 문으로 들어갔을 때 목표방
+    public RoomInfo bottomDoorDestination;//아래쪽 문으로 들어갔을 때 목표방
 
-    public Vector2Int leftDoor;//���� ���� ���� �� ��ġ
-    public Vector2Int rightDoor;//���� ���� ������ �� ��ġ
-    public Vector2Int topDoor;//���� ���� ���� �� ��ġ
-    public Vector2Int bottomDoor;//���� ���� �Ʒ��� �� ��ġ
+    public Vector2Int leftDoor;//왼쪽 문 위치
+    public Vector2Int rightDoor;//오른쪽 문 위치
+    public Vector2Int topDoor;//위쪽 문 위치
+    public Vector2Int bottomDoor;//아래쪽 문 위치
 
-    public Vector2Int leftDoorEntrance;//���� ������ ���� ��, ������ ��ġ
-    public Vector2Int rightDoorEntrance;//������ ������ ���� ��, ������ ��ġ
-    public Vector2Int bottomDoorEntrance;//���� ������ ���� ��, ������ ��ġ
-    public Vector2Int topDoorEntrance;//�Ʒ��� ������ ���� ��, ������ ��ġ
+    public Vector2Int leftDoorEntrance;//왼쪽 문으로 들어갔을 때 나오는 위치
+    public Vector2Int rightDoorEntrance;//오른쪽 문으로 들어갔을 때 나오는 위치
+    public Vector2Int bottomDoorEntrance;//아래쪽 문으로 들어갔을 때 나오는 위치
+    public Vector2Int topDoorEntrance;//위쪽 문으로 들어갔을 때 나오는 위치
 
-    public Vector2Int leftSpawnPoint;//���ʿ��� ������ ��ġ
-    public Vector2Int rightSpawnPoint;//�����ʿ��� ������ ��ġ
-    public Vector2Int topSpawnPoint;//���ʿ��� ������ ��ġ
-    public Vector2Int bottomSpawnPoint;//�Ʒ��ʿ��� ������ ��ġ
+    public Vector2Int leftSpawnPoint;//왼쪽에서 나오는 위치
+    public Vector2Int rightSpawnPoint;//오른쪽에서 나오는 위치
+    public Vector2Int topSpawnPoint;//위쪽에서 나오는 위치
+    public Vector2Int bottomSpawnPoint;//아래쪽에서 나오는 위치
 
     public RoomInfo(Vector2Int center)
     {
@@ -72,9 +72,9 @@ public class RoomInfo
         bottomSpawnPoint = this.center - new Vector2Int(0, (height / 2) - 4);
     }
 
-    private BoundsInt CreateRooms(Vector2Int center, int width, int height)//�� ����
+    private BoundsInt CreateRooms(Vector2Int center, int width, int height)//방 생성
     {
-        BoundsInt box = new BoundsInt(new Vector3Int(center.x - (width / 2), center.y - (height / 2), 0), new Vector3Int(width, height, 0));//�� �����
+        BoundsInt box = new BoundsInt(new Vector3Int(center.x - (width / 2), center.y - (height / 2), 0), new Vector3Int(width, height, 0));//방의 크기 조정
 
         return box;
     }
@@ -131,7 +131,7 @@ public class RoomInfo
 
     //-------------------------------------------------------------------------------------------------------------
 
-    public void SetObject()//���� ������Ʈ ����
+    public void SetObject()//방 오브젝트 설정
     {
         prefabsObject.transform.position = (Vector3Int)center;
         RoomSquare = prefabsObject.transform.Find("RoomInside").gameObject;
@@ -167,7 +167,7 @@ public class RoomInfo
         OpenDoor();
     }
 
-    private void ActiveDoor()//�� ����
+    private void ActiveDoor()//문 활성화
     {
         if (IsTopDoor)
         {
@@ -190,7 +190,7 @@ public class RoomInfo
             RightDoorObject.transform.Find("OpenedDoor").GetComponent<Telepoter>().TelepotePosition = rightDoorEntrance;
         }
 
-        //������ �� �ٸ���
+        //보스방과 연결된 문일 때
         if(topDoorDestination?.roomType == RoomType.BOSS_ROOM)
         {
             TopDoorObject.transform.Find("OpenedDoor").GetComponent<SpriteRenderer>().color = Color.red;
@@ -213,7 +213,7 @@ public class RoomInfo
         }
     }
 
-    public void CloseDoor()//�� �ݱ�
+    public void CloseDoor()//문 닫기
     {
         if (IsTopDoor)
         {
@@ -237,7 +237,7 @@ public class RoomInfo
         }
     }
 
-    public void OpenDoor()//�� ����
+    public void OpenDoor()//문 열기
     {
         if (IsTopDoor)
         {
@@ -263,7 +263,7 @@ public class RoomInfo
 
 
 
-    //-------------------------------------------------------------------------------------------------------------//�� �����ϱ�
+    //-------------------------------------------------------------------------------------------------------------//방끼리 연결하기
 
     public void SetSpawnPoint(Vector2Int spawnPoint, RoomInfo destinationRoom, Vector2Int direction)
     {
@@ -285,7 +285,7 @@ public class RoomInfo
         }
     }
 
-    public void OpenDoor( Vector2Int direction, RoomInfo destinationRoom, Vector2Int destination)//������ ���� ������ ����(���� ���� �� ����, ����� ��, ����� ���� �� ����)
+    public void OpenDoor( Vector2Int direction, RoomInfo destinationRoom, Vector2Int destination)//특정 방향의 문 활성화(현재방의 문, 목표방, 목표방에서 나오는 문)
     {
         if (direction == Vector2Int.up)
         {
