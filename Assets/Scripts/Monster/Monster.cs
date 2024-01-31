@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
+    // 몬스터 기본 스텟
     [SerializeField] private float speed = 2.0f;
-    private bool isLive = true;
-    [SerializeField] private Transform target;
-    private Vector2 pos;
-    private float power = 0;
-    private CharacterStatHandler characterStatHandler = null;
     private float hp = 6;
+    private Vector2 pos;
+    private bool isLive = true;
     private bool isMoveAround = false;
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
 
-    private Boss bossScript;
-    private bool isBossLive = true;
+    // 몬스터가 추적할 타겟
+    [SerializeField] private Transform target;
+
+    private float power = 0;
+    private CharacterStatHandler characterStatHandler = null;
 
     private void Awake()
     {
@@ -30,29 +31,15 @@ public class Monster : MonoBehaviour
     void FixedUpdate()
     {
         power = characterStatHandler.CurrentStats.attackSO.power;
-        //IsBossMonsterDie();
         Move();
     }
 
-    // �����濡�� ������ �׾����� Ȯ��
-    private void IsBossMonsterDie()
-    {
-        isBossLive = bossScript.isLive;
-
-        // ������ �׾��ٸ�
-        if (!isBossLive)
-        {
-            isLive = false;
-            Die();
-        }
-    }
-
-    // ���� ������
+    // 몬스터 행동 결정
     private void Move()
     {
         float distance = Vector2.Distance(target.position, transform.position);
 
-        // �÷��̾ ���Ͱ� �ν��� �� �ִ� ������ ���� ��
+        // 플레이어가 몬스터가 인식할 수 있는 범위에 있을 때
         if (distance < 16)
         {
             isMoveAround = false;
@@ -64,15 +51,15 @@ public class Monster : MonoBehaviour
         }
     }
 
-    // �÷��̾ �����Ѵ�.
+    // 플레이어를 추적
     private void FollowTarget()
     {
         if (isLive)
         {
-            // �÷��̾ �ִ� �������� ���� �̹��� ���� ��ȯ
+            // 플레이어가 있는 방향으로 몬스터 이미지 방향 전환
             spriter.flipX = target.position.x > rigid.position.x;
 
-            // �÷��̾ �ִ� ���� ���ؼ� ������
+            // 플레이어가 있는 곳을 향해서 움직임
             Vector2 dirVec = target.position - transform.position;
             Vector2 nextVec = dirVec.normalized * speed * 2.0f * Time.fixedDeltaTime;
             rigid.MovePosition(rigid.position + nextVec);
@@ -80,7 +67,7 @@ public class Monster : MonoBehaviour
         }
     }
 
-    // ���Ͱ� ���ƴٴѴ�.
+    // 몬스터 움직임
     private void MoveAround()
     {
         if (isLive)
@@ -91,14 +78,14 @@ public class Monster : MonoBehaviour
             }
             isMoveAround = true;
 
-            // �����̴� �������� �̹��� ��ȯ
+            // 움직이는 방향으로 이미지 전환
             spriter.flipX = rigid.position.x + pos.x > rigid.position.x;
 
             rigid.velocity = pos * speed;
-
         }
     }
 
+    // 몬스터 다음 움직임 결정
     private void NextPos()
     {
         pos.x = Random.Range(-1, 2);
@@ -108,10 +95,10 @@ public class Monster : MonoBehaviour
         Invoke("NextPos", 2f);
     }
 
-    // ���ݹ޾��� ��
+    // 공격받았을 때
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Weapon")
+        if (collision.gameObject.tag == "Weapon")
         {
             hp -= power;
 
@@ -123,9 +110,10 @@ public class Monster : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col) 
+    // 플레이어 피격
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player")
         {
             HealthSystem healthSystem = GameObject.Find("Player").GetComponent<HealthSystem>();
             healthSystem.ChangeHealth(-1);
@@ -141,12 +129,7 @@ public class Monster : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D col) 
-    {
-        
-    }
-
-    // �׾��� ��
+    // 죽었을 때
     private void Die()
     {
         Destroy(gameObject);
