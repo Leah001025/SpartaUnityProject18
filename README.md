@@ -56,6 +56,8 @@ https://shields.io/badges : 아이콘이나 명찰 등 만드는 곳
 
 #### 1. 맵 형성
 ![image](https://github.com/Leah001025/SpartaUnityProject18/assets/37549333/2aa1bb22-8900-4d27-acc5-e8ef0d11a75b)
+![image](https://github.com/Leah001025/SpartaUnityProject18/assets/37549333/f5149649-80ea-447e-a91e-96dfc7405862)
+![image](https://github.com/Leah001025/SpartaUnityProject18/assets/37549333/228a906b-4e9f-4b48-a018-765d06ac3919)
 
  - 맵은 스테이지에 집입할 때 마다 무작위 형태로 생성됩니다.
  - 한 스테이지에는 시작방(파란색), 아이템방(초록핵), 보스방(빨간색), 몬스터방(하얀색)이 존재합니다.
