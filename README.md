@@ -68,7 +68,8 @@ https://shields.io/badges : 아이콘이나 명찰 등 만드는 곳
 ![image](https://github.com/Leah001025/SpartaUnityProject18/assets/37549333/acda1f88-bd96-40cb-881c-de336f5bc828)
 
  - 몬스터와 전투 중일 땐 문이 닫히며, 다른 방으로 넘어갈 수 없습니다.
- - 방 안의 몬스터들을 전부 처리한 경우 문이 열리며, 다음방으로 넘어갈 수 있습니다. 
+ - 방 안의 몬스터들을 전부 처리한 경우 문이 열리며, 다음방으로 넘어갈 수 있습니다.
+ - 몬스터는 자유롭게 돌아다니다가 인식 범위 안으로 들어오면 플레이어를 추격합니다.
 
 #### 3. 보스전
 ![image](https://github.com/Leah001025/SpartaUnityProject18/assets/37549333/aefad6a1-19b8-42f5-b02e-add2748893f3)
